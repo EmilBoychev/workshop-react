@@ -1,7 +1,10 @@
 import { About } from "./components/About/About";
+import { ClientSection } from "./components/ClientSection/ClientSection";
+import { Contacts } from "./components/Contacts/Contacts";
 import { Footer } from "./components/Footer/Footer";
 import { Glasses } from "./components/Glasses/Glasses";
 import { Header } from "./components/Header/Header";
+import { Shop } from "./components/Shop/Shop";
 
 function App() {
   return (
@@ -12,6 +15,12 @@ function App() {
       <About />
 
       <Glasses />
+
+      <Shop />
+
+      <ClientSection />
+
+      <Contacts />
 
       <Footer />
     </div>
