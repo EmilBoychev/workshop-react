@@ -1,4 +1,5 @@
 import { About } from "./components/About/About";
+import { Banner } from "./components/Banner/Banner";
 import { ClientSection } from "./components/ClientSection/ClientSection";
 import { Contacts } from "./components/Contacts/Contacts";
 import { Footer } from "./components/Footer/Footer";
@@ -11,6 +12,8 @@ function App() {
 
     <div className="App">
       <Header />
+
+      <Banner />
 
       <About />
 
