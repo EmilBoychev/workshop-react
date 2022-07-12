@@ -72,7 +72,7 @@ export const Glasses = () => {
                         </div>
                     </div>
                     <div className="col-md-12">
-                        <a className="read_more" href="#">Read More</a>
+                        <a className="read_more" href="/more">Read More</a>
                     </div>
                 </div>
             </div>

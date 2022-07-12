@@ -6,7 +6,7 @@ export const Footer = () => {
                     <div className="row">
                         <div className="col-md-8 offset-md-2">
                             <ul className="location_icon">
-                                <li><a href="#"><i className="fa fa-map-marker" aria-hidden="true"></i></a> Location</li>
+                                <li><a href=""><i className="fa fa-map-marker" aria-hidden="true"></i></a> Location</li>
                                 <li><a href="#"><i className="fa fa-phone" aria-hidden="true"></i></a> +01 1234567890</li>
                                 <li><a href="#"><i className="fa fa-envelope" aria-hidden="true"></i></a> demo@gmail.com</li>
                             </ul>

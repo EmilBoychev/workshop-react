@@ -14,7 +14,7 @@ export const Banner = () => {
                                 <div className="text-bg">
                                     <h1> <span className="blu">Welcome </span>To Our Sunglasses</h1>
                                     <figure><img src="images/banner_img.png" alt="#" /></figure>
-                                    <a className="read_more" href="#">Shop Now</a>
+                                    <a className="read_more" href="/shop">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -25,7 +25,7 @@ export const Banner = () => {
                                 <div className="text-bg">
                                     <h1> <span className="blu">Welcome </span>To Our Sunglasses</h1>
                                     <figure><img src="images/banner_img.png" alt="#" /></figure>
-                                    <a className="read_more" href="#">Shop Now</a>
+                                    <a className="read_more" href="/shop">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@ export const Banner = () => {
                                 <div className="text-bg">
                                     <h1> <span className="blu">Welcome </span>To Our Sunglasses</h1>
                                     <figure><img src="images/banner_img.png" alt="#" /></figure>
-                                    <a className="read_more" href="#">Shop Now</a>
+                                    <a className="read_more" href="/shop">Shop Now</a>
                                 </div>
                             </div>
                         </div>

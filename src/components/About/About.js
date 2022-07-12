@@ -16,7 +16,7 @@ export const About = () => {
                                 believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
                                 anything embarrassing hidden in the middle of text.</p>
                         </div>
-                        <a className="read_more" href="#">Read More</a>
+                        <a className="read_more" href="/more">Read More</a>
                     </div>
                 </div>
             </div>
