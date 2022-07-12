@@ -20,7 +20,7 @@ export const Contacts = () => {
                                     <input className="contactus" placeholder="Email" type="type" name="Email" />
                                 </div>
                                 <div className="col-md-12">
-                                    <input className="contactusmess" placeholder="Message" type="type" Message="Name" />
+                                    <input className="contactusmess" placeholder="Message" type="type" message="Name" />
                                 </div>
                                 <div className="col-md-12">
                                     <button className="send_btn">Send</button>
