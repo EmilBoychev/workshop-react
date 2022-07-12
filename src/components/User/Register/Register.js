@@ -20,7 +20,7 @@ export const Register = () => {
                                     <input className="contactusmess" placeholder="Re-password" type="type" message="rePassword" />
                                 </div>
                                 <div className="col-md-12">
-                                    <button className="send_btn">Send</button>
+                                    <button className="send_btn">Register</button>
                                 </div>
                             </div>
                         </form>
