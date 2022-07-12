@@ -1,3 +1,5 @@
+import './style.css';
+
 export const Shop = () => {
     return (
         <div id="about" className="shop">
