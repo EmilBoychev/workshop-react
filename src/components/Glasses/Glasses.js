@@ -1,3 +1,5 @@
+import './style.css';
+
 export const Glasses = () => {
     return (
         <div className="glasses">
