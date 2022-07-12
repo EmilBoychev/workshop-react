@@ -112,7 +112,7 @@ h4 a,
 h5 a,
 h6 a {
      color: #212121;
-     text-decoration: none!important;
+     text-decoration: none !important;
      opacity: 1
 }
 
@@ -157,7 +157,7 @@ img {
      height: auto;
 }
 
- :focus {
+:focus {
      outline: 0;
 }
 
@@ -219,7 +219,7 @@ button {
 
 
 /*---------------------------- preloader area ----------------------------*/
-
+/* 
 .loader_bg {
      position: fixed;
      z-index: 9999999;
@@ -241,7 +241,7 @@ button {
 
 .loader img {
      width: 280px;
-}
+} */
 
 
 /*-- header area --*/
@@ -255,7 +255,7 @@ button {
 
 /*-- navigation--*/
 
-.navigation.navbar {
+/* .navigation.navbar {
      float: right;
      background: #fff;
      clear: both;
@@ -315,12 +315,12 @@ button {
 
 .logo {
      padding-top: 14px;
-}
+} */
 
 
 /** banner section **/
 
-.banner_main {
+/* .banner_main {
      background: #f5f6f6;
      padding: 198px 0px 90px 0px;
 }
@@ -388,7 +388,7 @@ button {
      position: absolute;
      right: 20px;
      bottom: 10px;
-}
+} */
 
 
 /** end banner section **/
