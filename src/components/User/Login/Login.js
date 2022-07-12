@@ -17,7 +17,7 @@ export const Login = () => {
                                     <input className="contactus" placeholder="Password" type="type" name="password" />
                                 </div>
                                 <div className="col-md-12">
-                                    <button className="send_btn">Send</button>
+                                    <button className="send_btn">Login</button>
                                 </div>
                             </div>
                         </form>

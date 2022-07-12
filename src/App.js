@@ -7,7 +7,7 @@ import { Footer } from "./components/Footer/Footer";
 import { Glasses } from "./components/Glasses/Glasses";
 import { Header } from "./components/Header/Header";
 import { Shop } from "./components/Shop/Shop";
-import { Login } from "./components/User/Register/Login";
+import { Login } from "./components/User/Login/Login";
 import { Register } from "./components/User/Register/Register";
 
 function App() {
