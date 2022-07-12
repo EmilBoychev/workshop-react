@@ -23,7 +23,7 @@ export const Create = () => {
                                     <input className="contactusmess" placeholder="Price" type="type" message="price" />
                                 </div>
                                 <div className="col-md-12">
-                                    <button className="send_btn">Send</button>
+                                    <button className="send_btn">Add</button>
                                 </div>
                             </div>
                         </form>
