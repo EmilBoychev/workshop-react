@@ -18,7 +18,6 @@ export const Register = () => {
         e.preventDefault();
         const { userName, password, rePassword } = values;
         if (password === rePassword) {
-            console.log(values);
             UserService.register({ userName, password })
         } else {
             console.log('Password don\'t match');
