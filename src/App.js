@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom";
 import { About } from "./components/About/About";
 import { Banner } from "./components/Banner/Banner";
 import { ClientSection } from "./components/ClientSection/ClientSection";
@@ -10,34 +11,42 @@ import { Shop } from "./components/Shop/Shop";
 import { Login } from "./components/User/Login/Login";
 import { Register } from "./components/User/Register/Register";
 
+
 function App() {
-  return (
+    return (
 
-    <div className="App">
-      <Header />
+        <>
+            <Header />
+            <div className="App">
 
-      <Banner />
+                <Routes>
+                    <Route path="/" element={<Banner />} />
 
-      <About />
+                    <Route path="/about" element={<About />} />
 
-      <Glasses />
+                    <Route path="/glasses" element={<Glasses />} />
 
-      <Shop />
+                    <Route path="/shop" element={<Shop />} />
 
-      <ClientSection />
+                    <Route path="/clients" element={<ClientSection />} />
 
-      <Contacts />
+                    <Route path="/contact" element={<Contacts />} />
 
-      <Create />
+                    <Route path="/create" element={<Create />} />
 
-      <Register />
+                    <Route path="/register" element={<Register />} />
 
-      <Login />
+                    <Route path="/login" element={<Login />} />
 
-      <Footer />
-    </div>
+                </Routes>
 
-  );
+                <Footer />
+            </div>
+        </>
+
+
+
+    );
 }
 
 export default App;
