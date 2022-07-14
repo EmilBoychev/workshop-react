@@ -1,5 +1,5 @@
 import './style.css'
-
+import { NavLink } from 'react-router-dom'
 
 export const Header = () => {
     return (
@@ -25,29 +25,29 @@ export const Header = () => {
                                 <div className="collapse navbar-collapse" id="navbarsExample04">
                                     <ul className="navbar-nav mr-auto">
                                         <li className="nav-item active">
-                                            <a className="nav-link" href="index.html">Home</a>
+                                            <NavLink className="nav-link" to="/">Home</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="about.html">About</a>
+                                            <NavLink className="nav-link" to="/about">About</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="glasses.html">Our Glasses</a>
+                                            <NavLink className="nav-link" to="/glasses">Our Glasses</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="shop.html">Shop</a>
+                                            <NavLink className="nav-link" to="/shop">Shop</NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <a className="nav-link" href="contact.html">Contact Us</a>
+                                            <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
                                         </li>
                                         <li className="nav-item d_none login_btn">
-                                            <a className="nav-link" href="login">Login</a>
+                                            <NavLink className="nav-link" to="/login">Login</NavLink>
                                         </li>
                                         <li className="nav-item d_none">
-                                            <a className="nav-link" href="/register">Register</a>
+                                            <NavLink className="nav-link" to="/register">Register</NavLink>
                                         </li>
                                         <li className="nav-item d_none sea_icon">
-                                            <a className="nav-link" href="/bag"><i className="fa fa-shopping-bag" aria-hidden="true"></i><i
-                                                className="fa fa-search" aria-hidden="true"></i></a>
+                                            <NavLink className="nav-link" to="/bag"><i className="fa fa-shopping-bag" aria-hidden="true"></i><i
+                                                className="fa fa-search" aria-hidden="true"></i></NavLink>
                                         </li>
                                     </ul>
                                 </div>
