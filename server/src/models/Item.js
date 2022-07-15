@@ -2,9 +2,20 @@ const { model, Schema, Types: { ObjectId } } = require('mongoose');
 
 
 const itemSchema = new Schema({
-    name: { type: String },
-    imgUrl: { type: String },
-    description: { type: String },
+    name: {
+        type: String,
+        minlength: 4,
+        maxLength: 20
+    },
+    imgUrl: {
+        type: String,
+        minlength: 4,
+    },
+    description: {
+        type: String,
+        minlength: 4,
+        maxLength: 230
+    },
     price: { type: Number, min: [0.01, 'Price must be a positive number'] },
     // _ownerId: { type: ObjectId, ref: 'User' }
 });

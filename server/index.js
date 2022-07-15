@@ -24,7 +24,7 @@ async function start() {
     app.use(cors());
     app.use(auth());
 
-    app.use('/catalog', glassesController);
+    app.use('/glasses', glassesController);
     app.use('/users', usersController);
 
     app.listen(5000, () => console.log('REST Service started on port 5000'));
