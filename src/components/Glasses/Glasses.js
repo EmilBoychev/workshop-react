@@ -1,7 +1,24 @@
 import { One } from './One';
+import * as GlassesService from '../Services/GlassesService';
 import './style.css';
+import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
-export const Glasses = (glasses) => {
+export const Glasses = (data) => {
+    const [glasses, setGlasses] = useState([]);
+
+    useEffect(() => {
+        try {
+            GlassesService.getAll()
+                .then(glasses => setGlasses(glasses))
+        } catch (error) {
+            throw error;
+        }
+
+    }, [])
+    console.log(glasses);
+
+
     return (
         <div className="glasses">
             <div className="container">
@@ -19,59 +36,11 @@ export const Glasses = (glasses) => {
             <div className="container-fluid">
                 <div className="row">
 
-                    {/* {glasses.map(glasses => <One glassesData="glasses">)} */}
+                    {glasses.map(glasses => <One key={glasses._id} glassesData={glasses} />)}
 
-                    <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                        <div className="glasses_box">
-                            <figure><img src="https://m.media-amazon.com/images/I/411L3Qb+QSL._UX569_.jpg" alt="#" /></figure>
-                            <h3><span className="blu">$</span>50</h3>
-                            <p>Sunglasses</p>
-                        </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                        <div className="glasses_box">
-                            <figure><img src="https://www.savemoneyonglasses.com/wp-content/uploads/2022/01/carrera-sunglasses-1007-s-08079o.jpg" alt="#" /></figure>
-                            <h3><span className="blu">$</span>50</h3>
-                            <p>Sunglasses</p>
-                        </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                        <div className="glasses_box">
-                            <figure><img src="images/glass4.png" alt="#" /></figure>
-                            <h3><span className="blu">$</span>50</h3>
-                            <p>Sunglasses</p>
-                        </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                        <div className="glasses_box">
-                            <figure><img src="images/glass5.png" alt="#" /></figure>
-                            <h3><span className="blu">$</span>50</h3>
-                            <p>Sunglasses</p>
-                        </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                        <div className="glasses_box">
-                            <figure><img src="images/glass6.png" alt="#" /></figure>
-                            <h3><span className="blu">$</span>50</h3>
-                            <p>Sunglasses</p>
-                        </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                        <div className="glasses_box">
-                            <figure><img src="images/glass7.png" alt="#" /></figure>
-                            <h3><span className="blu">$</span>50</h3>
-                            <p>Sunglasses</p>
-                        </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                        <div className="glasses_box">
-                            <figure><img src="images/glass8.png" alt="#" /></figure>
-                            <h3><span className="blu">$</span>50</h3>
-                            <p>Sunglasses</p>
-                        </div>
-                    </div>
+
                     <div className="col-md-12">
-                        <a className="read_more" href="/more">Read More</a>
+                        <NavLink className="read_more" to="/shop">Read More</NavLink>
                     </div>
                 </div>
             </div>

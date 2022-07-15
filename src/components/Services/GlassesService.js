@@ -14,3 +14,8 @@ export const create = async (glassesData) => {
     const result = await responce.json();
     return result
 }
+export const getAll = async () => {
+    const responce = await fetch(baseUrl);
+    const result = await responce.json();
+    return result;
+}
