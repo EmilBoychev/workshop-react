@@ -15,7 +15,7 @@ async function create(item) {
         imgUrl: item.imgUrl,
         description: item.description,
         price: item.price,
-        _ownerId: item._ownerId
+        // _ownerId: item._ownerId
     });
 
     await result.save();

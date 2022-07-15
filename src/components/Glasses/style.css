@@ -53,3 +53,9 @@
     margin: 0 auto;
     margin-top: 44px;
 }
+
+figure {
+    height: 200px;
+    width: 300px;
+    margin: auto;
+}

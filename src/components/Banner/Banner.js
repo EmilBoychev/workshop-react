@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import './style.css';
 
 export const Banner = () => {
@@ -16,7 +17,7 @@ export const Banner = () => {
                                 <div className="text-bg">
                                     <h1> <span className="blu">Welcome </span>To Our Sunglasses</h1>
                                     <figure><img src="images/banner_img.png" alt="#" /></figure>
-                                    <a className="read_more" href="/shop">Shop Now</a>
+                                    <NavLink className="read_more" to="/shop">Shop Now</NavLink>
                                 </div>
                             </div>
                         </div>
@@ -27,7 +28,7 @@ export const Banner = () => {
                                 <div className="text-bg">
                                     <h1> <span className="blu">Welcome </span>To Our Sunglasses</h1>
                                     <figure><img src="images/banner_img.png" alt="#" /></figure>
-                                    <a className="read_more" href="/shop">Shop Now</a>
+                                    <NavLink className="read_more" to="/shop">Shop Now</NavLink>
                                 </div>
                             </div>
                         </div>
@@ -38,18 +39,18 @@ export const Banner = () => {
                                 <div className="text-bg">
                                     <h1> <span className="blu">Welcome </span>To Our Sunglasses</h1>
                                     <figure><img src="images/banner_img.png" alt="#" /></figure>
-                                    <a className="read_more" href="/shop">Shop Now</a>
+                                    <NavLink className="read_more" to="/shop">Shop Now</NavLink>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a className="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
+                <NavLink className="carousel-control-prev" to="#banner1" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left" aria-hidden="true"></i>
-                </a>
-                <a className="carousel-control-next" href="#banner1" role="button" data-slide="next">
+                </NavLink>
+                <NavLink className="carousel-control-next" to="#banner1" role="button" data-slide="next">
                     <i className="fa fa-arrow-right" aria-hidden="true"></i>
-                </a>
+                </NavLink>
             </div>
         </section>
     )
