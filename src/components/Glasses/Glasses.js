@@ -4,9 +4,9 @@ import './style.css';
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-export const Glasses = (data) => {
+export const Glasses = ({ data }) => {
     const [glasses, setGlasses] = useState([]);
-
+    const [oneGlasses, setOneGlasses] = useState({})
     useEffect(() => {
         try {
             GlassesService.getAll()
@@ -16,8 +16,18 @@ export const Glasses = (data) => {
         }
 
     }, [])
-    console.log(glasses);
 
+    const clickDetailsHandler = (glassesId) => {
+        try {
+            GlassesService.getOne(glassesId)
+                .then(res => {
+                    // setOneGlasses(res)
+                    data(res)
+                })
+        } catch (error) {
+            throw error
+        }
+    }
 
     return (
         <div className="glasses">
@@ -36,7 +46,7 @@ export const Glasses = (data) => {
             <div className="container-fluid">
                 <div className="row">
 
-                    {glasses.map(glasses => <One key={glasses._id} glassesData={glasses} />)}
+                    {glasses.map(glasses => <One key={glasses._id} glassesData={glasses} clickDetails={clickDetailsHandler} />)}
 
 
                     <div className="col-md-12">

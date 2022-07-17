@@ -1,14 +1,13 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 import * as GlassesService from '../Services/GlassesService'
 
 
 export const Create = () => {
 
     const [values, setValues] = useState({
-        name: '',
         imgUrl: '',
         description: '',
+        name: '',
         price: '',
     })
 
@@ -19,7 +18,6 @@ export const Create = () => {
         }))
 
     }
-
     const OnSubmitHandler = (e) => {
         e.preventDefault()
         try {
@@ -27,9 +25,9 @@ export const Create = () => {
             GlassesService.create(glassesData)
                 .then(res => {
                     setValues({
-                        name: '',
                         imgUrl: '',
                         description: '',
+                        name: '',
                         price: '',
                     })
                 })
@@ -62,7 +60,6 @@ export const Create = () => {
                                 </div>
                                 <div className="col-md-12">
                                     <button className="send_btn">Add</button>
-                                    {/* {crea < Navigate to="/" />} */}
                                 </div>
                             </div>
                         </form>
