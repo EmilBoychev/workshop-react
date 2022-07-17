@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { About } from "./components/About/About";
 import { Banner } from "./components/Banner/Banner";
 import { ClientSection } from "./components/ClientSection/ClientSection";
@@ -7,12 +8,26 @@ import { Create } from "./components/Create/Create";
 import { Footer } from "./components/Footer/Footer";
 import { Glasses } from "./components/Glasses/Glasses";
 import { Header } from "./components/Header/Header";
-import { Shop } from "./components/Shop/Shop";
+import { Details } from "./components/Shop/Details";
 import { Login } from "./components/User/Login/Login";
 import { Register } from "./components/User/Register/Register";
 
 
 function App() {
+
+    const navigate = useNavigate()
+    const [glasses, setGlasses] = useState({})
+    const glassesDetails = (oneGlasses) => {
+        navigate(`/details`)
+        return setGlasses(oneGlasses)
+    }
+
+    // const oneGlass = () => {
+    //     return
+    // }
+
+
+
     return (
 
         <>
@@ -24,9 +39,9 @@ function App() {
 
                     <Route path="/about" element={<About />} />
 
-                    <Route path="/glasses" element={<Glasses />} />
+                    <Route path="/glasses" element={<Glasses data={glassesDetails} />} />
 
-                    <Route path="/shop" element={<Shop />} />
+                    <Route path="/details" element={<Details data={glasses} />} />
 
                     <Route path="/clients" element={<ClientSection />} />
 
