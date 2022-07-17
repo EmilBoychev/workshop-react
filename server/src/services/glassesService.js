@@ -11,7 +11,7 @@ async function getAll(query) {
 
 async function create(item) {
     const result = new Item({
-        name: item.make,
+        name: item.name,
         imgUrl: item.imgUrl,
         description: item.description,
         price: item.price,

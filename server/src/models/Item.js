@@ -4,15 +4,18 @@ const { model, Schema, Types: { ObjectId } } = require('mongoose');
 const itemSchema = new Schema({
     name: {
         type: String,
+        required: true,
         minlength: 4,
         maxLength: 20
     },
     imgUrl: {
         type: String,
+        required: true,
         minlength: 4,
     },
     description: {
         type: String,
+        required: true,
         minlength: 4,
         maxLength: 230
     },
