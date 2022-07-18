@@ -52,9 +52,17 @@ function logout(token) {
 }
 
 function createSession(user) {
+    // let admin = false;
+    // console.log(user);
+    // if (user.admin === 'true') {
+    //     admin = true
+    // }
+
+
     const payload = {
         userName: user.userName,
-        _id: user._id
+        _id: user._id,
+        // admin
     };
 
     const accessToken = jwt.sign(payload, JWT_SECRET);
@@ -62,7 +70,8 @@ function createSession(user) {
     return {
         userName: user.userName,
         accessToken,
-        _id: user._id
+        _id: user._id,
+        // admin
     };
 }
 

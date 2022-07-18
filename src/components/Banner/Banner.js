@@ -17,7 +17,7 @@ export const Banner = () => {
                                 <div className="text-bg">
                                     <h1> <span className="blu">Welcome </span>To Our Sunglasses</h1>
                                     <figure><img src="images/banner_img.png" alt="#" /></figure>
-                                    <NavLink className="read_more" to="/shop">Shop Now</NavLink>
+                                    <NavLink className="read_more" to="/glasses">Shop Now</NavLink>
                                 </div>
                             </div>
                         </div>
@@ -28,7 +28,7 @@ export const Banner = () => {
                                 <div className="text-bg">
                                     <h1> <span className="blu">Welcome </span>To Our Sunglasses</h1>
                                     <figure><img src="images/banner_img.png" alt="#" /></figure>
-                                    <NavLink className="read_more" to="/shop">Shop Now</NavLink>
+                                    <NavLink className="read_more" to="/glasses">Shop Now</NavLink>
                                 </div>
                             </div>
                         </div>
@@ -39,18 +39,18 @@ export const Banner = () => {
                                 <div className="text-bg">
                                     <h1> <span className="blu">Welcome </span>To Our Sunglasses</h1>
                                     <figure><img src="images/banner_img.png" alt="#" /></figure>
-                                    <NavLink className="read_more" to="/shop">Shop Now</NavLink>
+                                    <NavLink className="read_more" to="/glasses">Shop Now</NavLink>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <NavLink className="carousel-control-prev" to="#banner1" role="button" data-slide="prev">
+                {/* <NavLink className="carousel-control-prev" to="#banner1" role="button" data-slide="prev">
                     <i className="fa fa-arrow-left" aria-hidden="true"></i>
                 </NavLink>
                 <NavLink className="carousel-control-next" to="#banner1" role="button" data-slide="next">
                     <i className="fa fa-arrow-right" aria-hidden="true"></i>
-                </NavLink>
+                </NavLink> */}
             </div>
         </section>
     )
