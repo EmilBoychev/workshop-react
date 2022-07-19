@@ -15,12 +15,15 @@ import { Register } from "./components/User/Register/Register";
 
 function App() {
 
-    const navigate = useNavigate()
-    const [glasses, setGlasses] = useState({})
-    const glassesDetails = (oneGlasses) => {
-        navigate(`/details`)
-        return setGlasses(oneGlasses)
-    }
+    // const navigate = useNavigate()
+    // const [glasses, setGlasses] = useState({})
+    // const glassesDetails = (glassesId) => {
+    //     setGlasses(glassesId)
+
+    //     navigate(`/details/${glassesId}`);
+    //     return;
+
+    // }
 
     // const oneGlass = () => {
     //     return
@@ -39,9 +42,9 @@ function App() {
 
                     <Route path="/about" element={<About />} />
 
-                    <Route path="/glasses" element={<Glasses data={glassesDetails} />} />
+                    <Route path="/glasses" element={<Glasses />} />
 
-                    <Route path="/details" element={<Details data={glasses} />} />
+                    <Route path="/details/:glassesId" element={<Details />} />
 
                     <Route path="/clients" element={<ClientSection />} />
 

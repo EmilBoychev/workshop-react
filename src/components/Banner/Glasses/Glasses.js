@@ -8,7 +8,7 @@ export const Glasses = ({ glasses }) => {
                     <div className="text-bg">
                         <h1> <span className="blu">Welcome </span>To Our Sunglasses</h1>
                         <figure><img className="banner-img" src={glasses?.imgUrl} alt="#" /></figure>
-                        <NavLink className="read_more" to={`/glasses/${glasses?._id}`}>Shop Now</NavLink>
+                        <NavLink className="read_more" to={`/details/${glasses?._id}`}>Shop Now</NavLink>
                     </div>
                 </div>
             </div>
