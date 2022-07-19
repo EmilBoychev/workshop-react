@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, } from "react-router-dom";
 import { About } from "./components/About/About";
 import { Banner } from "./components/Banner/Banner";
 import { ClientSection } from "./components/ClientSection/ClientSection";
@@ -15,24 +14,7 @@ import { Register } from "./components/User/Register/Register";
 
 function App() {
 
-    // const navigate = useNavigate()
-    // const [glasses, setGlasses] = useState({})
-    // const glassesDetails = (glassesId) => {
-    //     setGlasses(glassesId)
-
-    //     navigate(`/details/${glassesId}`);
-    //     return;
-
-    // }
-
-    // const oneGlass = () => {
-    //     return
-    // }
-
-
-
     return (
-
         <>
             <Header />
             <div className="App">
@@ -61,9 +43,6 @@ function App() {
                 <Footer />
             </div>
         </>
-
-
-
     );
 }
 

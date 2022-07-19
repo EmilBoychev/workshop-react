@@ -10,14 +10,9 @@ export const Details = () => {
     useEffect(() => {
         GlassesService.getOne(glassesId)
             .then(res => {
-                console.log(res);
                 setGlasses(res)
             })
-
-
     }, [])
-
-
 
     return (
         <div id="about" className="shop">
