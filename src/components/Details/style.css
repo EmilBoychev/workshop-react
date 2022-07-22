@@ -54,3 +54,20 @@
 .shop .titlepage .read_more {
     color: #fff !important
 }
+
+.comments {
+    color: #2a2a2c;
+    font-size: 17px;
+    line-height: 35px;
+    font-weight: 400;
+    padding-top: 20px;
+}
+
+.comments {
+    border: #000 solid 1px;
+    padding: 20px 20px;
+    z-index: 10018;
+    background: #fff;
+    margin-right: 40px;
+    border-radius: 40px;
+}

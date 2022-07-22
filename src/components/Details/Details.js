@@ -30,6 +30,11 @@ export const Details = () => {
                         <div className="shop_img">
                             <figure><img src={glasses.imgUrl} alt="#" /></figure>
                         </div>
+                        <div className="comments">
+                            <h2>Name</h2>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
+                                alteration in some form, by injected humour.</p>
+                        </div>
                     </div>
                     <div className="col-md-7 padding_right0">
                         <div className="max_width">

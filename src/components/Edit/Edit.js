@@ -85,6 +85,8 @@ export const Edit = () => {
                     </div>
                 </div>
             </div>
+            {values.imgUrl && <img className='image-add' src={values.imgUrl} alt={values.name} ></img>}
+
             <div className="container-fluid">
                 <div className="map_section">
                     <div id="map">

@@ -1,5 +1,6 @@
 import { useState } from "react"
-import * as GlassesService from '../Services/GlassesService'
+import * as GlassesService from '../Services/GlassesService';
+import './style.css'
 
 
 export const Create = () => {
@@ -61,6 +62,8 @@ export const Create = () => {
                     </div>
                 </div>
             </div>
+            {values.imgUrl && <img className='image-add' src={values.imgUrl} alt={values.name} ></img>}
+
             <div className="container-fluid">
                 <div className="map_section">
                     <div id="map">
