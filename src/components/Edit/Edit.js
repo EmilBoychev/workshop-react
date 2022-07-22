@@ -4,9 +4,9 @@ import * as GlassesService from '../Services/GlassesService'
 import './style.css';
 
 export const Edit = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
-    const glassesParams = useParams('id')
+    const glassesParams = useParams('id');
     const [values, setValues] = useState({
         imgUrl: '',
         description: '',
@@ -22,9 +22,9 @@ export const Edit = () => {
                     description: res.description,
                     name: res.name,
                     price: res.price
-                }))
-            })
-    }, [])
+                }));
+            });
+    }, []);
 
 
 
@@ -33,21 +33,27 @@ export const Edit = () => {
         setValues(state => ({
             ...state,
             [e.target.name]: e.target.value
-        }))
+        }));
     }
     const OnSubmitHandler = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         try {
             const glassesData = values;
             GlassesService.updata(glassesParams.id, glassesData)
                 .then(res => {
-                    console.log(res);
+                    setValues(state => ({
+                        imgUrl: res.imgUrl,
+                        description: res.description,
+                        name: res.name,
+                        price: res.price
+                    }));
+
                 });
         } catch (error) {
-            throw error
-        }
+            throw error;
+        };
 
-        navigate(`/details/${glassesParams.id}`)
+        navigate(`/details/${glassesParams.id}`);
     }
     return (
         <div id="contact" className="contact">
@@ -72,7 +78,7 @@ export const Edit = () => {
                                     <input className="contactusmess" placeholder="Price" type="type" name="price" value={values.price} onChange={ChangeHandler} />
                                 </div>
                                 <div className="col-md-12">
-                                    <button className="send_btn">Add</button>
+                                    <button className="send_btn">Edit</button>
                                 </div>
                             </div>
                         </form>

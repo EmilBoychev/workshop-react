@@ -15,11 +15,10 @@ export const Create = () => {
         setValues(state => ({
             ...state,
             [e.target.name]: e.target.value
-        }))
-        console.log(values);
-    }
+        }));
+    };
     const OnSubmitHandler = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         try {
             const glassesData = values;
             GlassesService.create(glassesData)
@@ -29,12 +28,12 @@ export const Create = () => {
                         description: '',
                         name: '',
                         price: '',
-                    })
-                })
+                    });
+                });
         } catch (error) {
-            throw error
-        }
-    }
+            throw error;
+        };
+    };
 
     return (
         <div id="contact" className="contact">

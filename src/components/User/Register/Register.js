@@ -21,7 +21,7 @@ export const Register = () => {
             UserService.register({ userName, password })
         } else {
             console.log('Password don\'t match');
-        }
+        };
     };
 
 

@@ -4,7 +4,7 @@ import './style.css';
 import { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 export const Glasses = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [glasses, setGlasses] = useState([]);
     useEffect(() => {
         try {
@@ -16,7 +16,7 @@ export const Glasses = () => {
     }, [])
 
     const clickDetailsHandler = (glassesId) => {
-        navigate(`/details/${glassesId}`)
+        navigate(`/details/${glassesId}`);
     }
 
     return (

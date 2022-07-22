@@ -4,15 +4,16 @@ import * as GlassesService from '../Services/GlassesService'
 import './style.css';
 
 export const Details = () => {
-    const { glassesId } = useParams()
-    const [glasses, setGlasses] = useState({})
+    ;
+    const { glassesId } = useParams();
+    const [glasses, setGlasses] = useState({});
 
     useEffect(() => {
         GlassesService.getOne(glassesId)
             .then(res => {
                 setGlasses(res)
-            })
-    }, [])
+            });
+    }, []);
 
     return (
         <div id="about" className="shop">
@@ -26,7 +27,7 @@ export const Details = () => {
                     <div className="col-md-7 padding_right0">
                         <div className="max_width">
                             <div className="titlepage">
-                                <h2>Best SunGlasses At Our shop</h2>
+                                <h2>{glasses.name}</h2>
                                 <p>{glasses.description}</p>
                                 <NavLink className="read_more" to="#">Buy now</NavLink>
                                 <NavLink className="read_more" to={`/glasses/${glasses._id}/edit`}>Edit</NavLink>

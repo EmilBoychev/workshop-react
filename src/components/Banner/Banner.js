@@ -5,13 +5,13 @@ import './style.css';
 
 export const Banner = () => {
     const [glasses, setGlasses] = useState([]);
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(0);
     useEffect(() => {
         GlassesService.getAll()
             .then(glasses => {
                 setGlasses(glasses);
-            })
-    }, [])
+            });
+    }, []);
 
     const nextClickHandler = (e) => {
         // e.preventDefult();
@@ -20,14 +20,14 @@ export const Banner = () => {
             setIndex(state => state + 1);
         } else {
             setIndex(0);
-        }
-    }
+        };
+    };
     const prevClickHandler = (e) => {
         if (index <= 0) {
             setIndex(glasses.length);
-        }
+        };
         setIndex(state => state - 1);
-    }
+    };
     return (
         <section className="banner_main">
             <div id="banner1" className="carousel slide" data-ride="carousel">
