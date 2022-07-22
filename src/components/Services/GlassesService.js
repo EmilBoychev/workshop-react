@@ -27,3 +27,15 @@ export const getOne = async (glassesId) => {
     const result = await responce.json();
     return result;
 }
+
+export const updata = async (glassesId, glassesData) => {
+    const responce = await fetch(baseUrl + '/' + glassesId, {
+        method: "PUT",
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(glassesData)
+    });
+    const result = await responce.json();
+    return result;
+}

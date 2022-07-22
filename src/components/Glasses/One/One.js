@@ -1,4 +1,3 @@
-
 export const One = ({ glassesData, clickDetails }) => {
 
 
@@ -9,6 +8,7 @@ export const One = ({ glassesData, clickDetails }) => {
                 <figure className="img-one" ><img src={glassesData.imgUrl} alt="#" /></figure>
                 <h3>{glassesData.name}</h3>
                 <p><span className="blu">$</span>{glassesData.price}</p>
+
             </div>
         </div>
 

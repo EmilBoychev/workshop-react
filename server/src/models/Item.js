@@ -6,7 +6,7 @@ const itemSchema = new Schema({
         type: String,
         required: true,
         minlength: 4,
-        maxLength: 20
+        maxLength: 50
     },
     imgUrl: {
         type: String,

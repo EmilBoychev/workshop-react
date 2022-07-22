@@ -37,7 +37,8 @@ router.get('/:id', preload(api), (req, res) => {
     res.json(res.locals.item);
 });
 
-router.put('/:id', preload(api), isOwner(), async (req, res) => {
+router.put('/:id', preload(api), async (req, res) => {
+    // router.put('/:id', preload(api), isOwner(), async (req, res) => {
     try {
         const result = await api.updateById(res.locals.item, req.body);
         res.json(result);
@@ -47,7 +48,8 @@ router.put('/:id', preload(api), isOwner(), async (req, res) => {
     }
 });
 
-router.delete('/:id', isAuth(), isOwner(), async (req, res) => {
+// router.delete('/:id', isAuth(), isOwner(), async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const id = req.params.id;
 
     try {

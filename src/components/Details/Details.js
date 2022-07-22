@@ -29,6 +29,8 @@ export const Details = () => {
                                 <h2>Best SunGlasses At Our shop</h2>
                                 <p>{glasses.description}</p>
                                 <NavLink className="read_more" to="#">Buy now</NavLink>
+                                <NavLink className="read_more" to={`/glasses/${glasses._id}/edit`}>Edit</NavLink>
+                                <NavLink className="read_more" to={`/glasses/${glasses._id}/delete`}>Delete</NavLink>
                             </div>
                         </div>
                     </div>

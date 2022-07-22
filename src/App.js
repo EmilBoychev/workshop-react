@@ -7,9 +7,10 @@ import { Create } from "./components/Create/Create";
 import { Footer } from "./components/Footer/Footer";
 import { Glasses } from "./components/Glasses/Glasses";
 import { Header } from "./components/Header/Header";
-import { Details } from "./components/Shop/Details";
+import { Details } from "./components/Details/Details";
 import { Login } from "./components/User/Login/Login";
 import { Register } from "./components/User/Register/Register";
+import { Edit } from "./components/Edit/Edit";
 
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
                     <Route path="/register" element={<Register />} />
 
                     <Route path="/login" element={<Login />} />
+
+                    <Route path={`/glasses/:id/edit`} element={<Edit />} />
 
                 </Routes>
 
