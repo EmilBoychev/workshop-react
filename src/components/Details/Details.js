@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import * as GlassesService from '../Services/GlassesService'
 import './style.css';
 
 export const Details = () => {
-    ;
+    const navigate = useNavigate();
     const { glassesId } = useParams();
     const [glasses, setGlasses] = useState({});
 
@@ -14,6 +14,13 @@ export const Details = () => {
                 setGlasses(res)
             });
     }, []);
+
+    const deleteGlasses = () => {
+        GlassesService.deleteGlasses(glasses._id)
+            .then(res => {
+                navigate('/glasses')
+            })
+    }
 
     return (
         <div id="about" className="shop">
@@ -31,7 +38,7 @@ export const Details = () => {
                                 <p>{glasses.description}</p>
                                 <NavLink className="read_more" to="#">Buy now</NavLink>
                                 <NavLink className="read_more" to={`/glasses/${glasses._id}/edit`}>Edit</NavLink>
-                                <NavLink className="read_more" to={`/glasses/${glasses._id}/delete`}>Delete</NavLink>
+                                <div className="read_more" onClick={() => deleteGlasses()}>Delete</div>
                             </div>
                         </div>
                     </div>

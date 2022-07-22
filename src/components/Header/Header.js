@@ -11,7 +11,7 @@ export const Header = () => {
                             <div className="full">
                                 <div className="center-desk">
                                     <div className="logo">
-                                        <a href="index.html"><img src="images/logo.png" alt="#" /></a>
+                                        <NavLink to='/'><img src="/images/logo.png" alt="#" /></NavLink>
                                     </div>
                                 </div>
                             </div>

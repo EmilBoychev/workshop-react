@@ -19,20 +19,16 @@ export const Create = () => {
     };
     const OnSubmitHandler = (e) => {
         e.preventDefault();
-        try {
-            const glassesData = values;
-            GlassesService.create(glassesData)
-                .then(res => {
-                    setValues({
-                        imgUrl: '',
-                        description: '',
-                        name: '',
-                        price: '',
-                    });
+        const glassesData = values;
+        GlassesService.create(glassesData)
+            .then(res => {
+                setValues({
+                    imgUrl: '',
+                    description: '',
+                    name: '',
+                    price: '',
                 });
-        } catch (error) {
-            throw error;
-        };
+            });
     };
 
     return (

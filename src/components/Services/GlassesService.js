@@ -39,3 +39,11 @@ export const updata = async (glassesId, glassesData) => {
     const result = await responce.json();
     return result;
 }
+
+export const deleteGlasses = async (glassesId) => {
+    const responce = await fetch(baseUrl + '/' + glassesId, {
+        method: "DELETE"
+    });
+    const result = responce.json();
+    return result;
+}
