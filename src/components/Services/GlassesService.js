@@ -13,7 +13,6 @@ export const create = async (glassesData) => {
     });
 
     const result = await responce.json();
-    console.log(responce);
     return result
 }
 export const getAll = async () => {

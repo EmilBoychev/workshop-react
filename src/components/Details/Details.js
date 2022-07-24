@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import { Choice } from '../Alerts/Choice';
 import * as GlassesService from '../Services/GlassesService'
 import './style.css';
 
@@ -7,6 +8,7 @@ export const Details = () => {
     const navigate = useNavigate();
     const { glassesId } = useParams();
     const [glasses, setGlasses] = useState({});
+    const [deleteHandler, setDeleteHandler] = useState(false)
 
     useEffect(() => {
         GlassesService.getOne(glassesId)
@@ -16,10 +18,19 @@ export const Details = () => {
     }, []);
 
     const deleteGlasses = () => {
-        GlassesService.deleteGlasses(glasses._id)
-            .then(res => {
-                navigate('/glasses')
-            })
+        setDeleteHandler(true)
+        choiceHandler()
+        if (deleteHandler) {
+            GlassesService.deleteGlasses(glasses._id)
+                .then(res => {
+                    navigate('/glasses')
+                })
+        }
+    }
+    const choiceHandler = (choice) => {
+        if (choice) {
+            setDeleteHandler(false)
+        }
     }
 
     return (
@@ -43,10 +54,14 @@ export const Details = () => {
                                 <p>{glasses.description}</p>
                                 <NavLink className="read_more" to="#">Buy now</NavLink>
                                 <NavLink className="read_more" to={`/glasses/${glasses._id}/edit`}>Edit</NavLink>
-                                <div className="read_more" onClick={() => deleteGlasses()}>Delete</div>
+                                <div className="read_more" onClick={() => deleteGlasses()}  >Delete</div>
                             </div>
                         </div>
                     </div>
+                    {deleteHandler &&
+                        <div>
+                            <Choice onCloseBtn={choiceHandler} deleteGlasses={deleteGlasses} />
+                        </div>}
                 </div>
             </div>
         </div>

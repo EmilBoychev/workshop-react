@@ -1,0 +1,55 @@
+.delete {
+    border: #000 solid 1px;
+    padding: 20px 20px;
+    z-index: 10018;
+    background: #fff;
+    margin-right: 40px;
+    border-radius: 40px;
+    text-align: center;
+    padding-right: 400px;
+    padding-left: 400px;
+    margin-right: 400px;
+    margin-left: 400px;
+}
+
+.btn {
+    margin: 5px;
+    border-radius: 10px;
+}
+
+
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+/* .modal {
+    width: 45rem;
+    position: absolute;
+    max-height: 90vh;
+    margin: auto;
+    border-radius: 20px;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+    z-index: 30;
+    margin-top: 50px;
+} */
+
+.custom-ui {
+    padding-right: 200px;
+    padding-left: 200px;
+    margin-right: 200px;
+    margin-left: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+}
