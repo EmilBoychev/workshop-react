@@ -10,7 +10,10 @@ export const Banner = () => {
         GlassesService.getAll()
             .then(glasses => {
                 setGlasses(glasses);
-            });
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }, []);
 
     const nextClickHandler = (e) => {

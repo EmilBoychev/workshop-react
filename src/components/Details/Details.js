@@ -14,7 +14,10 @@ export const Details = () => {
         GlassesService.getOne(glassesId)
             .then(res => {
                 setGlasses(res)
-            });
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }, []);
 
     const deleteGlasses = () => {
@@ -24,6 +27,9 @@ export const Details = () => {
             GlassesService.deleteGlasses(glasses._id)
                 .then(res => {
                     navigate('/glasses')
+                })
+                .catch(err => {
+                    console.log(err);
                 })
         }
     }

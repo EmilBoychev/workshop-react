@@ -29,7 +29,10 @@ export const Create = () => {
                     name: '',
                     price: '',
                 });
-            });
+            })
+            .catch(err => {
+                console.log(err);
+            })
     };
 
     return (

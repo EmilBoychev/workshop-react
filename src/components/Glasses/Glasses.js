@@ -7,12 +7,11 @@ export const Glasses = () => {
     const navigate = useNavigate();
     const [glasses, setGlasses] = useState([]);
     useEffect(() => {
-        try {
-            GlassesService.getAll()
-                .then(glasses => setGlasses(glasses))
-        } catch (error) {
-            console.log(error);
-        }
+        GlassesService.getAll()
+            .then(glasses => setGlasses(glasses))
+            .catch(err => {
+                console.log(err);
+            })
     }, [])
 
     const clickDetailsHandler = (glassesId) => {

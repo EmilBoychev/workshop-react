@@ -23,7 +23,10 @@ export const Edit = () => {
                     name: res.name,
                     price: res.price
                 }));
-            });
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }, []);
 
 
@@ -37,21 +40,20 @@ export const Edit = () => {
     }
     const OnSubmitHandler = (e) => {
         e.preventDefault();
-        try {
-            const glassesData = values;
-            GlassesService.updata(glassesParams.id, glassesData)
-                .then(res => {
-                    setValues(state => ({
-                        imgUrl: res.imgUrl,
-                        description: res.description,
-                        name: res.name,
-                        price: res.price
-                    }));
+        const glassesData = values;
+        GlassesService.updata(glassesParams.id, glassesData)
+            .then(res => {
+                setValues(state => ({
+                    imgUrl: res.imgUrl,
+                    description: res.description,
+                    name: res.name,
+                    price: res.price
+                }));
 
-                });
-        } catch (error) {
-            throw error;
-        };
+            })
+            .catch(err => {
+                console.log(err);
+            });
 
         navigate(`/details/${glassesParams.id}`);
     }
