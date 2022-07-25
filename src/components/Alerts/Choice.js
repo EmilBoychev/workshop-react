@@ -8,11 +8,11 @@ export const Choice = ({ onCloseBtn, deleteGlasses }) => {
                 <div className="delete" >
                     <h2>Are you sure?</h2>
                     <p>You want to delete this file?</p>
-                    <button className='btn' onClick={() => onCloseBtn(true)}>No</button>
                     <button className='btn' onClick={() => {
                         deleteGlasses();
                         onCloseBtn(true);
                     }}>Yes, Delete it!</button>
+                    <button className='btn' onClick={() => onCloseBtn(true)}>No</button>
                 </div>
             </div>
 
