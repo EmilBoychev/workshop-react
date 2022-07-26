@@ -12,7 +12,6 @@ export const Message = ({
         MessageService.getAll()
             .then(res => {
                 setMessage(res);
-                // console.log(res);
             })
             .catch(err => {
                 console.log(err);

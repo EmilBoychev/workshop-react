@@ -12,14 +12,16 @@ import { Details } from "./components/Details/Details";
 import { Login } from "./components/User/Login/Login";
 import { Register } from "./components/User/Register/Register";
 import { Edit } from "./components/Edit/Edit";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Message } from "./components/Messages/Messages";
 
 
 function App() {
     const navigate = useNavigate()
-    const [userMessage, setUserMessage] = useState(true);
-
+    const [userMessage, setUserMessage] = useState();
+    useEffect(() => {
+        setUserMessage(true)
+    }, [userMessage])
     const onCloseMessage = () => {
         setUserMessage(false);
         navigate('/')
