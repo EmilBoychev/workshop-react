@@ -45,10 +45,13 @@ export const Header = () => {
                                         <li className="nav-item d_none">
                                             <NavLink className="nav-link" to="/create">Add</NavLink>
                                         </li>
-                                        <li className="nav-item d_none sea_icon">
+                                        <li className="nav-item d_none">
+                                            <NavLink className="nav-link" to="/messages">Message</NavLink>
+                                        </li>
+                                        {/* <li className="nav-item d_none sea_icon">
                                             <NavLink className="nav-link" to="/bag"><i className="fa fa-shopping-bag" aria-hidden="true"></i><i
                                                 className="fa fa-search" aria-hidden="true"></i></NavLink>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </div>
                             </nav>

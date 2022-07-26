@@ -1,4 +1,5 @@
-import { Routes, Route, } from "react-router-dom";
+import { Routes, Route, useNavigate, } from "react-router-dom";
+import { AuthContext } from './components/Contexts/AuthContext'
 import { About } from "./components/About/About";
 import { Banner } from "./components/Banner/Banner";
 import { ClientSection } from "./components/ClientSection/ClientSection";
@@ -11,41 +12,55 @@ import { Details } from "./components/Details/Details";
 import { Login } from "./components/User/Login/Login";
 import { Register } from "./components/User/Register/Register";
 import { Edit } from "./components/Edit/Edit";
+import { useState } from "react";
+import { Message } from "./components/Messages/Messages";
 
 
 function App() {
+    const navigate = useNavigate()
+    const [userMessage, setUserMessage] = useState(true);
+
+    const onCloseMessage = () => {
+        setUserMessage(false);
+        navigate('/')
+    }
 
     return (
-        <>
-            <Header />
-            <div className="App">
+        <AuthContext.Provider value={true} >
 
-                <Routes>
-                    <Route path="/" element={<Banner />} />
+            <>
+                <Header />
+                <div className="App">
 
-                    <Route path="/about" element={<About />} />
+                    <Routes>
+                        <Route path="/" element={<Banner />} />
 
-                    <Route path="/glasses" element={<Glasses />} />
+                        <Route path="/about" element={<About />} />
 
-                    <Route path="/details/:glassesId" element={<Details />} />
+                        <Route path="/glasses" element={<Glasses />} />
 
-                    <Route path="/clients" element={<ClientSection />} />
+                        <Route path="/details/:glassesId" element={<Details />} />
 
-                    <Route path="/contact" element={<Contacts />} />
+                        <Route path="/clients" element={<ClientSection />} />
 
-                    <Route path="/create" element={<Create />} />
+                        <Route path="/contact" element={<Contacts />} />
 
-                    <Route path="/register" element={<Register />} />
+                        <Route path="/create" element={<Create />} />
 
-                    <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
 
-                    <Route path={`/glasses/:id/edit`} element={<Edit />} />
+                        <Route path="/login" element={<Login />} />
 
-                </Routes>
+                        <Route path={`/glasses/:id/edit`} element={<Edit />} />
 
-                <Footer />
-            </div>
-        </>
+                        {userMessage && <Route path="/messages" element={<Message onClose={onCloseMessage} />} />}
+
+                    </Routes>
+
+                    <Footer />
+                </div>
+            </>
+        </AuthContext.Provider>
     );
 }
 

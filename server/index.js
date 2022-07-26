@@ -5,6 +5,7 @@ const cors = require('./src/middlewares/cors');
 const auth = require('./src/middlewares/auth');
 const glassesController = require('./src/controllers/glassesController');
 const usersController = require('./src/controllers/users');
+const messageController = require('./src/controllers/messageController');
 
 
 async function start() {
@@ -26,6 +27,7 @@ async function start() {
 
     app.use('/glasses', glassesController);
     app.use('/users', usersController);
+    app.use('/messages', messageController)
 
     app.listen(5000, () => console.log('REST Service started on port 5000'));
 }

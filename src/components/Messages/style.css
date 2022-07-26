@@ -1,0 +1,35 @@
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    text-decoration-color: aliceblue;
+    text-align: center;
+}
+
+.btn {
+    margin: 5px;
+    border-radius: 10px;
+    background: lightblue;
+}
+
+.message {
+    border: #000 solid 1px;
+    padding: 20px 20px;
+    z-index: 10018;
+    background: #fff;
+    margin-right: 200px;
+    margin-left: 200px;
+    border-radius: 40px;
+}
+
+.close-btn {
+    height: 58px;
+    width: 100px;
+    margin: 10px;
+    border-radius: 10px;
+    background: lightblue;
+}
