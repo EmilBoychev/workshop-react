@@ -1,5 +1,7 @@
 import { Routes, Route, useNavigate, } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { AuthContext } from './components/Contexts/AuthContext'
+
 import { About } from "./components/About/About";
 import { Banner } from "./components/Banner/Banner";
 import { ClientSection } from "./components/ClientSection/ClientSection";
@@ -12,7 +14,6 @@ import { Details } from "./components/Details/Details";
 import { Login } from "./components/User/Login/Login";
 import { Register } from "./components/User/Register/Register";
 import { Edit } from "./components/Edit/Edit";
-import { useEffect, useState } from "react";
 import { Message } from "./components/Messages/Messages";
 
 
@@ -35,7 +36,7 @@ function App() {
                 <div className="App">
 
                     <Routes>
-                        <Route path="/" element={<Banner />} />
+                        <Route path="/" element={<> <Banner /> <Glasses /> </>} />
 
                         <Route path="/about" element={<About />} />
 
@@ -65,5 +66,6 @@ function App() {
         </AuthContext.Provider>
     );
 }
+
 
 export default App;

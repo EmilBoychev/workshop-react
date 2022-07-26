@@ -36,7 +36,7 @@ export const Register = () => {
                                     <h3>Register</h3>
                                 </div>
                                 <div className="col-md-12">
-                                    <input className="contactus" placeholder="User name" type="type" name="userName" value={values.userName} onChange={changeHandler} />
+                                    <input className="contactus" placeholder="Username" type="type" name="userName" value={values.userName} onChange={changeHandler} />
                                 </div>
                                 <div className="col-md-12">
                                     <input className="contactus" placeholder="Password" type="password" name="password" value={values.password} onChange={changeHandler} />

@@ -38,7 +38,8 @@ export const Message = ({
                         <h2>{x.name}</h2>
                         <p>Phone Number : {x.phoneNumber}</p>
                         <p>Email : {x.email}</p>
-                        <p>Message : {x.message}</p>
+                        <h2>Message :</h2>
+                        <p> {x.message}</p>
                         <button className='btn' onClick={() => onDelete(x._id)}>Delete</button>
                     </div>
                 )}
