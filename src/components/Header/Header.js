@@ -1,7 +1,29 @@
 import './style.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../Contexts/AuthContext';
 
 export const Header = () => {
+    const { auth } = useContext(AuthContext);
+
+    const forGuest = (
+        <>
+            <li className="nav-item d_none login_btn">
+                <NavLink className="nav-link" to="/login">Login</NavLink>
+            </li>
+            <li className="nav-item d_none">
+                <NavLink className="nav-link" to="/register">Register</NavLink>
+            </li>
+        </>
+    );
+    const forAuth = (
+        <li className="nav-item d_none login_btn">
+            <NavLink className="nav-link" to="/logout">Logout</NavLink>
+        </li>
+    )
+
+
+
     return (
         <header>
             <div className="header">
@@ -36,12 +58,8 @@ export const Header = () => {
                                         <li className="nav-item">
                                             <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
                                         </li>
-                                        <li className="nav-item d_none login_btn">
-                                            <NavLink className="nav-link" to="/login">Login</NavLink>
-                                        </li>
-                                        <li className="nav-item d_none">
-                                            <NavLink className="nav-link" to="/register">Register</NavLink>
-                                        </li>
+                                        {!auth.userName ? forGuest : forAuth}
+
                                         <li className="nav-item d_none">
                                             <NavLink className="nav-link" to="/create">Add</NavLink>
                                         </li>

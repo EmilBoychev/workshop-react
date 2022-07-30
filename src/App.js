@@ -15,11 +15,13 @@ import { Login } from "./components/User/Login/Login";
 import { Register } from "./components/User/Register/Register";
 import { Edit } from "./components/Edit/Edit";
 import { Message } from "./components/Messages/Messages";
+import { Logout } from "./components/Logout/Logout";
 
 
 function App() {
     const navigate = useNavigate()
     const [userMessage, setUserMessage] = useState();
+    const [auth, setAuth] = useState({});
     useEffect(() => {
         setUserMessage(true)
     }, [userMessage])
@@ -28,8 +30,13 @@ function App() {
         navigate('/')
     }
 
+    const loginHandler = (authData) => {
+        setAuth(authData);
+    }
+
+
     return (
-        <AuthContext.Provider value={true} >
+        <AuthContext.Provider value={{ auth, loginHandler }} >
 
             <>
                 <Header />
@@ -53,6 +60,8 @@ function App() {
                         <Route path="/register" element={<Register />} />
 
                         <Route path="/login" element={<Login />} />
+
+                        <Route path="/logout" element={<Logout />} />
 
                         <Route path={`/glasses/:id/edit`} element={<Edit />} />
 
