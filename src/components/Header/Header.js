@@ -58,7 +58,7 @@ export const Header = () => {
                                         <li className="nav-item">
                                             <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
                                         </li>
-                                        {!auth.userName ? forGuest : forAuth}
+                                        {!auth.email ? forGuest : forAuth}
 
                                         <li className="nav-item d_none">
                                             <NavLink className="nav-link" to="/create">Add</NavLink>

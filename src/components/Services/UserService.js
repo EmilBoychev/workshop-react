@@ -1,13 +1,13 @@
-const baseUrl = 'http://localhost:3030/jsonstore/users';
+const baseUrl = 'http://localhost:3030/users';
 
-export const register = async (userData) => {
+export const register = async (email, password) => {
     try {
         const response = await fetch(baseUrl + '/register', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(userData)
+            body: JSON.stringify({ email, password })
         });
         const result = await response.json();
         return result;
@@ -24,7 +24,7 @@ export const login = async (email, password) => {
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(email, password)
+            body: JSON.stringify({ email, password })
         });
         const result = await response.json();
         return result;
@@ -34,14 +34,9 @@ export const login = async (email, password) => {
     }
 }
 export const logout = (token) => {
-    fetch(baseUrl + '/logout')
-
-
-
-
-    // fetch(baseUrl + '/logout', {
-    //     headers: {
-    //         'X-Authorization': token
-    //     }
-    // });
+    return fetch(baseUrl + '/logout', {
+        headers: {
+            'X-Authorization': token
+        }
+    })
 };

@@ -1,10 +1,16 @@
+import './style.css';
 import { useState } from 'react';
 import * as UserService from '../../Services/UserService'
-import './style.css';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../Contexts/AuthContext';
 
 export const Register = () => {
+
+    const navigate = useNavigate()
+    const { loginHandler } = useContext(AuthContext);
     const [values, setValues] = useState({
-        userName: '',
+        email: '',
         password: '',
         rePassword: ''
     });
@@ -16,9 +22,18 @@ export const Register = () => {
     }
     const registerSubmitHandler = (e) => {
         e.preventDefault();
-        const { userName, password, rePassword } = values;
+        const { email, password, rePassword } = values;
         if (password === rePassword) {
-            UserService.register({ userName, password })
+            UserService.register(email, password)
+                .then(res => {
+                    loginHandler(res);
+                    navigate('/')
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+
+            navigate('/')
         } else {
             console.log('Password don\'t match');
         };
@@ -36,7 +51,7 @@ export const Register = () => {
                                     <h3>Register</h3>
                                 </div>
                                 <div className="col-md-12">
-                                    <input className="contactus" placeholder="Username" type="type" name="userName" value={values.userName} onChange={changeHandler} />
+                                    <input className="contactus" placeholder="Email" type="type" name="email" value={values.userName} onChange={changeHandler} />
                                 </div>
                                 <div className="col-md-12">
                                     <input className="contactus" placeholder="Password" type="password" name="password" value={values.password} onChange={changeHandler} />

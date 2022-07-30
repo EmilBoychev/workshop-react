@@ -10,7 +10,7 @@ export const Login = () => {
     const { loginHandler } = useContext(AuthContext);
     const navigate = useNavigate()
     const [values, setValues] = useState({
-        userName: '',
+        email: '',
         password: '',
     });
     const changeHandler = (e) => {
@@ -21,8 +21,8 @@ export const Login = () => {
     }
     const loginSubmitHandler = (e) => {
         e.preventDefault();
-        const { userName, password } = values;
-        UserService.login({ userName, password })
+        const { email, password } = values;
+        UserService.login(email, password)
             .then(userData => {
                 loginHandler(userData);
                 navigate('/');
@@ -43,7 +43,7 @@ export const Login = () => {
                                     <h3>Login</h3>
                                 </div>
                                 <div className="col-md-12">
-                                    <input className="contactus" placeholder="Username" type="type" name="userName" value={values.userName} onChange={changeHandler} />
+                                    <input className="contactus" placeholder="Username" type="type" name="email" value={values.email} onChange={changeHandler} />
                                 </div>
                                 <div className="col-md-12">
                                     <input className="contactus" placeholder="Password" type="type" name="password" value={values.password} onChange={changeHandler} />

@@ -1,5 +1,5 @@
 
-const baseUrl = 'http://localhost:3030/data/glasses';
+const baseUrl = 'http://localhost:3030/jsonstore/glasses';
 
 
 export const create = async (glassesData) => {
@@ -20,13 +20,11 @@ export const create = async (glassesData) => {
 export const getAll = async () => {
     try {
         const responce = await fetch(baseUrl);
-
         const result = await responce.json();
-        // const values = Object.values(result);
-        // const id = Object.keys(result);
-        // values.map(x => console.log(...x))
-        // console.log(values);
-        return result;
+        const glasses = Object.values(result);
+        const id = Object.keys(result);
+        let glassesWithId = glasses.map((x, i) => ({ ...x, _id: id[i] }))
+        return glassesWithId;
     } catch (error) {
         console.log(error);
     }

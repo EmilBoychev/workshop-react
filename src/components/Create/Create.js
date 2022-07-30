@@ -1,10 +1,13 @@
-import { useState } from "react"
+import { AuthContext } from "../Contexts/AuthContext";
+
+import { useState, useContext } from "react"
+
 import * as GlassesService from '../Services/GlassesService';
 import './style.css'
 
 
 export const Create = () => {
-
+    const { auth } = useContext(AuthContext)
     const [values, setValues] = useState({
         imgUrl: '',
         description: '',
@@ -21,13 +24,15 @@ export const Create = () => {
     const OnSubmitHandler = (e) => {
         e.preventDefault();
         const glassesData = values;
-        GlassesService.create(glassesData)
+        GlassesService.create({ ...glassesData, ownerId: auth._id })
             .then(res => {
+                console.log(res);
                 setValues({
                     imgUrl: '',
                     description: '',
                     name: '',
                     price: '',
+
                 });
             })
             .catch(err => {

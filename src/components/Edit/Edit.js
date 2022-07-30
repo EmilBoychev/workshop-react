@@ -27,7 +27,7 @@ export const Edit = () => {
             .catch(err => {
                 console.log(err);
             })
-    }, []);
+    }, [glassesParams.id]);
 
 
 

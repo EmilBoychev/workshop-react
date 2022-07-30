@@ -15,7 +15,7 @@ import { Login } from "./components/User/Login/Login";
 import { Register } from "./components/User/Register/Register";
 import { Edit } from "./components/Edit/Edit";
 import { Message } from "./components/Messages/Messages";
-import { Logout } from "./components/Logout/Logout";
+import { Logout } from "./components/User/Logout/Logout";
 
 
 function App() {
@@ -33,10 +33,13 @@ function App() {
     const loginHandler = (authData) => {
         setAuth(authData);
     }
+    const userLogout = () => {
+        setAuth({})
+    }
 
 
     return (
-        <AuthContext.Provider value={{ auth, loginHandler }} >
+        <AuthContext.Provider value={{ auth, loginHandler, userLogout }} >
 
             <>
                 <Header />
