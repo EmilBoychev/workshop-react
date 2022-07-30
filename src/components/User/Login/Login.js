@@ -1,9 +1,14 @@
 import './style.css';
+import { useContext } from 'react';
 import { useState } from 'react';
-import * as UserService from '../../Services/UserService'
+import * as UserService from '../../Services/UserService';
+import { AuthContext } from '../../Contexts/AuthContext';
+import { useNavigate } from 'react-router-dom'
 
 
 export const Login = () => {
+    const { loginHandler } = useContext(AuthContext);
+    const navigate = useNavigate()
     const [values, setValues] = useState({
         userName: '',
         password: '',
@@ -18,8 +23,12 @@ export const Login = () => {
         e.preventDefault();
         const { userName, password } = values;
         UserService.login({ userName, password })
-            .then(user => {
-                console.log(user);
+            .then(userData => {
+                loginHandler(userData);
+                navigate('/');
+            })
+            .catch(err => {
+                console.log(err);
             })
     }
 

@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:5000/messages';
+const baseUrl = 'http://localhost:3030/jsonstore/messages';
 
 
 export const create = async (messageData) => {

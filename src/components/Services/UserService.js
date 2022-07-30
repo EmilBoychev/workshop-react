@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:5000/users';
+const baseUrl = 'http://localhost:3030/jsonstore/users';
 
 export const register = async (userData) => {
     try {
@@ -17,14 +17,14 @@ export const register = async (userData) => {
 
 }
 
-export const login = async (username, password) => {
+export const login = async (email, password) => {
     try {
         const response = await fetch(baseUrl + '/login', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(username, password)
+            body: JSON.stringify(email, password)
         });
         const result = await response.json();
         return result;
@@ -33,3 +33,15 @@ export const login = async (username, password) => {
         console.log(error.message);
     }
 }
+export const logout = (token) => {
+    fetch(baseUrl + '/logout')
+
+
+
+
+    // fetch(baseUrl + '/logout', {
+    //     headers: {
+    //         'X-Authorization': token
+    //     }
+    // });
+};
