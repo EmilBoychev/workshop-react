@@ -11,7 +11,7 @@ export const Choice = ({ onCloseBtn, deleteGlasses }) => {
                     <button className='btn' onClick={() => {
                         deleteGlasses();
                         onCloseBtn(true);
-                    }}>Yes, Delete it!</button>
+                    }}>Yes</button>
                     <button className='btn' onClick={() => onCloseBtn(true)}>No</button>
                 </div>
             </div>

@@ -43,6 +43,8 @@ export const getOne = async (glassesId) => {
 }
 
 export const updata = async (glassesId, glassesData) => {
+
+    console.log(glassesData);
     try {
         const responce = await fetch(baseUrl + '/' + glassesId, {
             method: "PUT",

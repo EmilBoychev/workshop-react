@@ -4,11 +4,13 @@ import * as UserService from '../../Services/UserService'
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthContext';
+import { AdminContext } from '../../Contexts/AdminContext';
 
 export const Register = () => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { loginHandler } = useContext(AuthContext);
+    const { userAdmin } = useContext(AdminContext);
     const [values, setValues] = useState({
         email: '',
         password: '',
@@ -27,13 +29,16 @@ export const Register = () => {
             UserService.register(email, password)
                 .then(res => {
                     loginHandler(res);
-                    navigate('/')
+                    if (email === 'peter@abv.bg') {
+                        userAdmin(res);
+                    }
+                    navigate('/');
                 })
                 .catch(err => {
                     console.log(err);
                 })
 
-            navigate('/')
+            navigate('/');
         } else {
             console.log('Password don\'t match');
         };

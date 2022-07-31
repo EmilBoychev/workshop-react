@@ -17,36 +17,36 @@ import { Register } from "./components/User/Register/Register";
 import { Edit } from "./components/Edit/Edit";
 import { Message } from "./components/Messages/Messages";
 import { Logout } from "./components/User/Logout/Logout";
+import { useLocalStorage } from "./components/hooks/useLocalStorage";
 
 
 function App() {
     const navigate = useNavigate()
     const [userMessage, setUserMessage] = useState();
-    const [auth, setAuth] = useState({});
+    const [auth, setAuth] = useLocalStorage('auth', {});
     const [admin, setAdmin] = useState({});
     useEffect(() => {
         setUserMessage(true)
     }, [userMessage])
     const onCloseMessage = () => {
         setUserMessage(false);
-        navigate('/')
-    }
+        navigate('/');
+    };
 
     const loginHandler = (authData) => {
         setAuth(authData);
-    }
+    };
+
     const userLogout = () => {
-        setAuth({})
-    }
+        setAuth({});
+    };
 
     const userAdmin = (adminData) => {
-        setAdmin(adminData)
+        setAdmin(adminData);
     };
     const logoutAdmin = () => {
-        setAdmin('')
-    }
-
-
+        setAdmin('');
+    };
     return (
         <AuthContext.Provider value={{ auth, loginHandler, userLogout }} >
             <AdminContext.Provider value={{ admin, userAdmin, logoutAdmin }}>

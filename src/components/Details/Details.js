@@ -16,20 +16,20 @@ export const Details = () => {
     useEffect(() => {
         GlassesService.getOne(glassesId)
             .then(res => {
-                setGlasses(res)
+                setGlasses(res);
             })
             .catch(err => {
                 console.log(err);
             })
-    }, []);
+    }, [glassesId]);
 
     const deleteGlasses = () => {
-        setDeleteHandler(true)
-        choiceHandler()
+        setDeleteHandler(true);
+        choiceHandler();
         if (deleteHandler) {
             GlassesService.deleteGlasses(glasses._id)
                 .then(res => {
-                    navigate('/glasses')
+                    navigate('/glasses');
                 })
                 .catch(err => {
                     console.log(err);

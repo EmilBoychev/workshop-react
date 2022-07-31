@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './style.css';
 
 export const Footer = () => {
@@ -8,9 +9,9 @@ export const Footer = () => {
                     <div className="row">
                         <div className="col-md-8 offset-md-2">
                             <ul className="location_icon">
-                                <li><a href=""><i className="fa fa-map-marker" aria-hidden="true"></i></a> Location</li>
-                                <li><a href="#"><i className="fa fa-phone" aria-hidden="true"></i></a> +01 1234567890</li>
-                                <li><a href="#"><i className="fa fa-envelope" aria-hidden="true"></i></a> demo@gmail.com</li>
+                                <li><Link to=""><i className="fa fa-map-marker" aria-hidden="true"></i></Link> Location</li>
+                                <li><Link to="#"><i className="fa fa-phone" aria-hidden="true"></i></Link> +01 1234567890</li>
+                                <li><Link to="#"><i className="fa fa-envelope" aria-hidden="true"></i></Link> glasses@gmail.com</li>
                             </ul>
                         </div>
                     </div>
@@ -19,7 +20,7 @@ export const Footer = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-12">
-                                <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
+                                <p>© 2019 All Rights Reserved. Design by<Link to="https://html.design/"> Free Html Templates</Link></p>
                             </div>
                         </div>
                     </div>

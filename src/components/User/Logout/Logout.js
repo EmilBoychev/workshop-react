@@ -7,19 +7,19 @@ import { AdminContext } from '../../Contexts/AdminContext';
 
 export const Logout = () => {
     const { auth, userLogout } = useContext(AuthContext);
-    const { logoutAdmin } = useContext(AdminContext)
-    const navigate = useNavigate()
+    const { logoutAdmin } = useContext(AdminContext);
+    const navigate = useNavigate();
     useEffect(() => {
         // console.log(auth.accessToken);
         userService.logout(auth.accessToken)
             .then(res => {
-                userLogout()
-                logoutAdmin()
-                navigate('/')
+                userLogout();
+                logoutAdmin();
+                navigate('/');
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
 
-    }, [auth.accessToken, navigate, userLogout]);
+    }, [auth.accessToken, navigate, userLogout, logoutAdmin]);
     return null;
 }
 

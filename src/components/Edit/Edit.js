@@ -13,11 +13,13 @@ export const Edit = () => {
         name: '',
         price: '',
     })
-
+    console.log(glassesParams.id);
     useEffect(() => {
         GlassesService.getOne(glassesParams.id)
             .then(res => {
+                console.log(res);
                 setValues(state => ({
+                    _id: glassesParams.id,
                     imgUrl: res.imgUrl,
                     description: res.description,
                     name: res.name,
@@ -44,6 +46,7 @@ export const Edit = () => {
         GlassesService.updata(glassesParams.id, glassesData)
             .then(res => {
                 setValues(state => ({
+                    ...state,
                     imgUrl: res.imgUrl,
                     description: res.description,
                     name: res.name,
