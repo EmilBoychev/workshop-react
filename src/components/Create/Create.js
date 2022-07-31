@@ -26,7 +26,6 @@ export const Create = () => {
         const glassesData = values;
         GlassesService.create({ ...glassesData, ownerId: auth._id })
             .then(res => {
-                console.log(res);
                 setValues({
                     imgUrl: '',
                     description: '',

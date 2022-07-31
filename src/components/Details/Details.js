@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
+import { useContext } from 'react';
 import { Choice } from '../Alerts/Choice';
 import * as GlassesService from '../Services/GlassesService'
 import './style.css';
+import { AdminContext } from '../Contexts/AdminContext';
 
 export const Details = () => {
+    const { admin } = useContext(AdminContext);
     const navigate = useNavigate();
     const { glassesId } = useParams();
     const [glasses, setGlasses] = useState({});
@@ -59,8 +62,12 @@ export const Details = () => {
                                 <h2>{glasses.name}</h2>
                                 <p>{glasses.description}</p>
                                 <NavLink className="read_more" to="#">Buy now</NavLink>
-                                <NavLink className="read_more" to={`/glasses/${glasses._id}/edit`}>Edit</NavLink>
-                                <div className="read_more" onClick={() => deleteGlasses()}  >Delete</div>
+                                {admin &&
+                                    <>
+                                        <NavLink className="read_more" to={`/glasses/${glasses._id}/edit`}>Edit</NavLink>
+                                        <div className="read_more" onClick={() => deleteGlasses()}  >Delete</div>
+                                    </>
+                                }
                             </div>
                         </div>
                     </div>

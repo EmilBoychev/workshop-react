@@ -3,11 +3,14 @@ import { useContext } from 'react';
 import { useState } from 'react';
 import * as UserService from '../../Services/UserService';
 import { AuthContext } from '../../Contexts/AuthContext';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { AdminContext } from '../../Contexts/AdminContext';
+
 
 
 export const Login = () => {
     const { loginHandler } = useContext(AuthContext);
+    const { userAdmin } = useContext(AdminContext);
     const navigate = useNavigate()
     const [values, setValues] = useState({
         email: '',
@@ -25,6 +28,9 @@ export const Login = () => {
         UserService.login(email, password)
             .then(userData => {
                 loginHandler(userData);
+                if (userData.email === 'peter@abv.bg') {
+                    userAdmin(userData);
+                }
                 navigate('/');
             })
             .catch(err => {

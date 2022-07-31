@@ -2,9 +2,12 @@ import './style.css'
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
+import { AdminContext } from '../Contexts/AdminContext';
 
 export const Header = () => {
     const { auth } = useContext(AuthContext);
+    const { admin } = useContext(AdminContext);
+
 
     const forGuest = (
         <>
@@ -20,6 +23,17 @@ export const Header = () => {
         <li className="nav-item d_none login_btn">
             <NavLink className="nav-link" to="/logout">Logout</NavLink>
         </li>
+    );
+    const forAdmin = (
+        <>
+            <li className="nav-item d_none">
+                <NavLink className="nav-link" to="/create">Add</NavLink>
+            </li>
+            <li className="nav-item d_none">
+                <NavLink className="nav-link" to="/messages">Message</NavLink>
+            </li>
+
+        </>
     )
 
 
@@ -59,13 +73,8 @@ export const Header = () => {
                                             <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
                                         </li>
                                         {!auth.email ? forGuest : forAuth}
+                                        {admin.email && forAdmin}
 
-                                        <li className="nav-item d_none">
-                                            <NavLink className="nav-link" to="/create">Add</NavLink>
-                                        </li>
-                                        <li className="nav-item d_none">
-                                            <NavLink className="nav-link" to="/messages">Message</NavLink>
-                                        </li>
                                         {/* <li className="nav-item d_none sea_icon">
                                             <NavLink className="nav-link" to="/bag"><i className="fa fa-shopping-bag" aria-hidden="true"></i><i
                                                 className="fa fa-search" aria-hidden="true"></i></NavLink>
