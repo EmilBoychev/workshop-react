@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useId } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { Choice } from '../Alerts/Choice';
@@ -7,9 +7,11 @@ import './style.css';
 import { AdminContext } from '../Contexts/AdminContext';
 import { AuthContext } from '../Contexts/AuthContext';
 import { Comment } from './Coments/Coment';
+import uniqId from 'uniqid';
 // import * as commentService from '../Services/CommentService'
 
 export const Details = () => {
+    const id = useId()
     const { admin } = useContext(AdminContext);
     const { auth } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -60,9 +62,9 @@ export const Details = () => {
         const currentComment = formData.get('comment');
         if (currentComment.length < 3) {
             return console.log('more characters');
-        }
+        };
         let glassesComment = glasses.comment || [];
-        glassesComment.push({ comment: currentComment, ownerEmail: auth.email });
+        glassesComment.push({ comment: currentComment, ownerEmail: auth.email, _id: uniqId() });
         GlassesService.updata(glassesId, { ...glasses, comment: glassesComment })
             .then(res => {
                 setGlasses(res)
