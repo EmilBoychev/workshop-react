@@ -21,12 +21,12 @@ import { useLocalStorage } from "./components/hooks/useLocalStorage";
 
 
 function App() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [userMessage, setUserMessage] = useState();
     const [auth, setAuth] = useLocalStorage('auth', {});
-    const [admin, setAdmin] = useState({});
+    const [admin, setAdmin] = useLocalStorage('admin', {});
     useEffect(() => {
-        setUserMessage(true)
+        setUserMessage(true);
     }, [userMessage])
     const onCloseMessage = () => {
         setUserMessage(false);

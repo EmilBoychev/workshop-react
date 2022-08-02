@@ -5,13 +5,18 @@ import { Choice } from '../Alerts/Choice';
 import * as GlassesService from '../Services/GlassesService'
 import './style.css';
 import { AdminContext } from '../Contexts/AdminContext';
+import { AuthContext } from '../Contexts/AuthContext';
+import { Comment } from './Coments/Coment';
+// import * as commentService from '../Services/CommentService'
 
 export const Details = () => {
     const { admin } = useContext(AdminContext);
+    const { auth } = useContext(AuthContext);
     const navigate = useNavigate();
     const { glassesId } = useParams();
     const [glasses, setGlasses] = useState({});
-    const [deleteHandler, setDeleteHandler] = useState(false)
+    const [deleteHandler, setDeleteHandler] = useState(false);
+    // const [comment, setComment]
 
     useEffect(() => {
         GlassesService.getOne(glassesId)
@@ -22,6 +27,13 @@ export const Details = () => {
                 console.log(err);
             })
     }, [glassesId]);
+
+    // useEffect(() => {
+    //     commentService.getAll()
+    //         .then(res => {
+    //             console.log(res);
+    //         })
+    // }, [])
 
     const deleteGlasses = () => {
         setDeleteHandler(true);
@@ -40,7 +52,26 @@ export const Details = () => {
         if (choice) {
             setDeleteHandler(false)
         }
-    }
+    };
+    const addCommentHandler = (e) => {
+        e.preventDefault()
+
+        const formData = new FormData(e.target);
+        const currentComment = formData.get('comment');
+        if (currentComment.length < 3) {
+            return console.log('more characters');
+        }
+        let glassesComment = glasses.comment || [];
+        glassesComment.push({ comment: currentComment, ownerEmail: auth.email });
+        GlassesService.updata(glassesId, { ...glasses, comment: glassesComment })
+            .then(res => {
+                setGlasses(res)
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err.message);
+            });
+    };
 
     return (
         <div id="about" className="shop">
@@ -50,11 +81,18 @@ export const Details = () => {
                         <div className="shop_img">
                             <figure><img src={glasses.imgUrl} alt="#" /></figure>
                         </div>
-                        <div className="comments">
-                            <h2>Name</h2>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                                alteration in some form, by injected humour.</p>
-                        </div>
+
+                        {glasses.comment && glasses.comment.map(x => <Comment key={x._id} comment={x} />)}
+
+                        {!admin &&
+                            <form id='comment' className='comment-form' onSubmit={addCommentHandler} >
+                                <div>
+                                    <input className='comment' type="text" name="comment" defaultValue="" placeholder='Add commment...' />
+                                </div>
+                                <button className='add-comment '>Add comment</button>
+                            </form>
+                        }
+
                     </div>
                     <div className="col-md-7 padding_right0">
                         <div className="max_width">

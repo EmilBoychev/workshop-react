@@ -16,6 +16,7 @@ export const Logout = () => {
                 userLogout();
                 logoutAdmin();
                 navigate('/');
+                localStorage.clear()
             })
             .catch(err => console.log(err));
 
