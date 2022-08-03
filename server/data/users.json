@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "62cf3ec69ea5b165b27100d5"
+  },
+  "userName": "Pesho",
+  "hashedPassword": "$2b$10$vWX6yWeQCLZH.2wuRq4pi.5HOPKcoYNzQh/NeRn/1kfs.LxLwrxRK",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d47282788972711c51a384"
+  },
+  "userName": "Peter",
+  "hashedPassword": "$2b$10$WLDrgNeqFnqaCsKxEdsry.6EnUKKw2b1t0ZMnCZO.sXnH4wr0ir7a",
+  "admin": "true",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62e053f1315a792865ac2565"
+  },
+  "userName": "Pesho0",
+  "hashedPassword": "$2b$10$7xDWzTCIibrBouV8xob7WOHVMZXnkEVkiyzpIuzrxsXqZDJG22mYe",
+  "__v": 0
+}]
