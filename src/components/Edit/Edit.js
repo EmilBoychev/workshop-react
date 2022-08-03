@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import * as GlassesService from '../Services/GlassesService'
+import * as GlassesService from '../Services/GlassesService';
+import { AdminContext } from '../Contexts/AdminContext'
+import { useContext } from 'react';
 import './style.css';
 
 export const Edit = () => {
     const navigate = useNavigate();
-
+    const { admin } = useContext(AdminContext);
     const glassesParams = useParams('id');
     const [values, setValues] = useState({
         imgUrl: '',
         description: '',
         name: '',
         price: '',
-    })
-    console.log(glassesParams.id);
+    });
     useEffect(() => {
         GlassesService.getOne(glassesParams.id)
             .then(res => {
@@ -32,6 +33,9 @@ export const Edit = () => {
     }, [glassesParams.id]);
 
 
+    if (!admin.email) {
+        return navigate('/404')
+    }
 
 
     const ChangeHandler = (e) => {
@@ -42,6 +46,7 @@ export const Edit = () => {
     }
     const OnSubmitHandler = (e) => {
         e.preventDefault();
+
         const glassesData = values;
         GlassesService.updata(glassesParams.id, glassesData)
             .then(res => {

@@ -18,6 +18,7 @@ import { Edit } from "./components/Edit/Edit";
 import { Message } from "./components/Messages/Messages";
 import { Logout } from "./components/User/Logout/Logout";
 import { useLocalStorage } from "./components/hooks/useLocalStorage";
+import { Error404 } from './components/Error404/Error404'
 
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
 
                             {userMessage && <Route path="/messages" element={<Message onClose={onCloseMessage} />} />}
 
+                            <Route path={'/404'} element={<Error404 />} />
                         </Routes>
 
                         <Footer />

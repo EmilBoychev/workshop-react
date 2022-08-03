@@ -1,9 +1,9 @@
-import { useEffect, useState, useId } from 'react';
+import './style.css';
+import { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { Choice } from '../Alerts/Choice';
 import * as GlassesService from '../Services/GlassesService'
-import './style.css';
 import { AdminContext } from '../Contexts/AdminContext';
 import { AuthContext } from '../Contexts/AuthContext';
 import { Comment } from './Coments/Coment';
@@ -11,7 +11,6 @@ import uniqId from 'uniqid';
 // import * as commentService from '../Services/CommentService'
 
 export const Details = () => {
-    const id = useId()
     const { admin } = useContext(AdminContext);
     const { auth } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -19,7 +18,6 @@ export const Details = () => {
     const [glasses, setGlasses] = useState({});
     const [deleteHandler, setDeleteHandler] = useState(false);
     // const [comment, setComment]
-
     useEffect(() => {
         GlassesService.getOne(glassesId)
             .then(res => {
@@ -30,16 +28,13 @@ export const Details = () => {
             })
     }, [glassesId]);
 
-    // useEffect(() => {
-    //     commentService.getAll()
-    //         .then(res => {
-    //             console.log(res);
-    //         })
-    // }, [])
 
     const deleteGlasses = () => {
         setDeleteHandler(true);
         choiceHandler();
+        if (!admin.email) {
+            return navigate('/404');
+        }
         if (deleteHandler) {
             GlassesService.deleteGlasses(glasses._id)
                 .then(res => {
@@ -47,16 +42,16 @@ export const Details = () => {
                 })
                 .catch(err => {
                     console.log(err);
-                })
-        }
-    }
+                });
+        };
+    };
     const choiceHandler = (choice) => {
         if (choice) {
             setDeleteHandler(false)
-        }
+        };
     };
     const addCommentHandler = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const formData = new FormData(e.target);
         const currentComment = formData.get('comment');
@@ -67,8 +62,7 @@ export const Details = () => {
         glassesComment.push({ comment: currentComment, ownerEmail: auth.email, _id: uniqId() });
         GlassesService.updata(glassesId, { ...glasses, comment: glassesComment })
             .then(res => {
-                setGlasses(res)
-                console.log(res);
+                setGlasses(res);
             })
             .catch(err => {
                 console.log(err.message);
@@ -86,7 +80,7 @@ export const Details = () => {
 
                         {glasses.comment && glasses.comment.map(x => <Comment key={x._id} comment={x} />)}
 
-                        {!admin &&
+                        {!admin.email &&
                             <form id='comment' className='comment-form' onSubmit={addCommentHandler} >
                                 <div>
                                     <input className='comment' type="text" name="comment" defaultValue="" placeholder='Add commment...' />
@@ -102,7 +96,7 @@ export const Details = () => {
                                 <h2>{glasses.name}</h2>
                                 <p>{glasses.description}</p>
                                 <NavLink className="read_more" to="#">Buy now</NavLink>
-                                {admin &&
+                                {admin.email &&
                                     <>
                                         <NavLink className="read_more" to={`/glasses/${glasses._id}/edit`}>Edit</NavLink>
                                         <div className="read_more" onClick={() => deleteGlasses()}  >Delete</div>

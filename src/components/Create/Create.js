@@ -1,13 +1,13 @@
 import { AuthContext } from "../Contexts/AuthContext";
 
-import { useState, useContext } from "react"
+import { useState, useContext } from "react";
 
 import * as GlassesService from '../Services/GlassesService';
 import './style.css'
 
 
 export const Create = () => {
-    const { auth } = useContext(AuthContext)
+    const { auth } = useContext(AuthContext);
     const [values, setValues] = useState({
         imgUrl: '',
         description: '',
@@ -36,7 +36,7 @@ export const Create = () => {
             })
             .catch(err => {
                 console.log(err);
-            })
+            });
     };
 
     return (
