@@ -1,14 +1,17 @@
 import './style.css';
 import * as MessageService from '../Services/MessageService'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Contexts/AuthContext';
+import { useContext } from 'react';
 
 export const Contacts = () => {
     const navigate = useNavigate()
+    const { auth } = useContext(AuthContext);
     const userMessage = (e) => {
         e.preventDefault();
         let values = Object.fromEntries(new FormData(e.target))
 
-        MessageService.create(values)
+        MessageService.create(auth.accessToken, { ...values, email: auth.email })
             .then(res => {
                 navigate('/glasses')
             })
@@ -35,9 +38,9 @@ export const Contacts = () => {
                                 <div className="col-md-12">
                                     <input className="contactus" placeholder="Phone Number" type="type" name="phoneNumber" />
                                 </div>
-                                <div className="col-md-12">
+                                {/* <div className="col-md-12">
                                     <input className="contactus" placeholder="Email" type="type" name="email" />
-                                </div>
+                                </div> */}
                                 <div className="col-md-12">
                                     <input className="contactusmess" placeholder="Message" type="type" name="message" />
                                 </div>

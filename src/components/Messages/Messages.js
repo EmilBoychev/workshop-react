@@ -1,12 +1,13 @@
 import './style.css'
 import * as MessageService from '../Services/MessageService'
 import { useEffect, useState } from 'react'
-
+import { useContext } from 'react';
+import { AdminContext } from '../Contexts/AdminContext'
 
 export const Message = ({
     onClose
 }) => {
-
+    const { admin } = useContext(AdminContext);
     const [message, setMessage] = useState([]);
     useEffect(() => {
         MessageService.getAll()
@@ -20,7 +21,7 @@ export const Message = ({
     }, [])
 
     const onDelete = async (messageId) => {
-        MessageService.onDelete(messageId)
+        MessageService.onDelete(admin.accessToken, messageId)
             .then(res => {
                 const filteredMessage = message.filter(x => x._id !== messageId);
                 setMessage(filteredMessage)

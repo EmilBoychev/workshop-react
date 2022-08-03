@@ -1,11 +1,12 @@
 const baseUrl = 'http://localhost:3030/data/messages';
 
 
-export const create = async (messageData) => {
+export const create = async (token, messageData) => {
     try {
         const responce = await fetch(baseUrl, {
             method: 'POST',
             headers: {
+                "X-Authorization": token,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(messageData)
@@ -30,10 +31,13 @@ export const getAll = async () => {
 
 }
 
-export const onDelete = async (messageId) => {
+export const onDelete = async (token, messageId) => {
     try {
         const responce = await fetch(baseUrl + '/' + messageId, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                "X-Admin": token,
+            }
         });
         const result = await responce.json();
         return result;
