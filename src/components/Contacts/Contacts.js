@@ -13,7 +13,6 @@ export const Contacts = () => {
 
         let values = Object.fromEntries(new FormData(e.target))
         if (!auth.email) {
-            console.log(auth);
             navigate('/login')
             return
         }

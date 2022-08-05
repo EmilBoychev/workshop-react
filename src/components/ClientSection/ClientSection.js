@@ -1,6 +1,15 @@
 import './style.css';
+import { useContext } from 'react';
+import { AuthContext } from '../Contexts/AuthContext';
+import { useNavigate } from 'react-router-dom'
 
 export const ClientSection = () => {
+    const { auth } = useContext(AuthContext);
+    const navigata = useNavigate()
+    if (!auth.email) {
+        navigata('/login')
+    }
+
     return (
         <div className="clients">
             <div className="container">
@@ -15,11 +24,11 @@ export const ClientSection = () => {
                 <div className="row">
                     <div className="col-md-12">
                         <div id="myCarousel" className="carousel slide clients_Carousel " data-ride="carousel">
-                            <ol className="carousel-indicators">
+                            {/* <ol className="carousel-indicators">
                                 <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
                                 <li data-target="#myCarousel" data-slide-to="1"></li>
                                 <li data-target="#myCarousel" data-slide-to="2"></li>
-                            </ol>
+                            </ol> */}
                             <div className="carousel-inner">
                                 <div className="carousel-item active">
                                     <div className="container">
@@ -76,12 +85,12 @@ export const ClientSection = () => {
                                     </div>
                                 </div>
                             </div>
-                            <a className="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                            {/* <a className="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                                 <i className='fa fa-angle-left'></i>
                             </a>
                             <a className="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
                                 <i className='fa fa-angle-right'></i>
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                 </div>
