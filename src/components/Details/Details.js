@@ -30,7 +30,7 @@ export const Details = () => {
             .catch(err => {
                 console.log(err);
             })
-    }, [glassesId, oneGlasses]);
+    }, [glassesId]);
 
 
     const deleteGlasses = () => {

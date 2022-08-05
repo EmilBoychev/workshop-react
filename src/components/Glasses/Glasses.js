@@ -2,18 +2,29 @@ import './style.css';
 import { One } from './One/One';
 import * as GlassesService from '../Services/GlassesService';
 import { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const Glasses = () => {
     const navigate = useNavigate();
     const [glasses, setGlasses] = useState([]);
+    const [start, setStart] = useState(0);
+    const [end, setEnd] = useState(4);
     useEffect(() => {
         GlassesService.getAll()
-            .then(glasses => setGlasses(glasses))
+            .then(curGlasses => {
+                let glass = curGlasses.slice(start, end);
+                const result = glasses.concat(glass)
+                setGlasses(result);
+            })
             .catch(err => {
                 console.log(err);
-            })
-    }, [])
+            });
+    }, [start, end]);
+
+    const showMore = () => {
+        setStart(() => Number(start) + 4);
+        setEnd(() => Number(end) + 4);
+    };
 
     const clickDetailsHandler = (glassesId) => {
         navigate(`/details/${glassesId}`);
@@ -40,7 +51,7 @@ export const Glasses = () => {
 
 
                     <div className="col-md-12">
-                        <NavLink className="read_more" to="/shop" >Read More</NavLink>
+                        <button className='read_more' onClick={showMore} >Read more</button>
                     </div>
                 </div>
             </div>
