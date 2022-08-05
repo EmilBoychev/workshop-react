@@ -12,9 +12,13 @@
     padding: 0;
 }
 
-#map {
+.map {
     height: 100%;
     min-height: 732px;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
 }
 
 .main_form {
@@ -76,4 +80,10 @@
 #request *::placeholder {
     color: #4b4b4c;
     opacity: 1;
+}
+
+.image-add {
+    margin-left: 1000px;
+    width: 900px;
+    height: 450px;
 }

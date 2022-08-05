@@ -9,9 +9,9 @@ export const Footer = () => {
                     <div className="row">
                         <div className="col-md-8 offset-md-2">
                             <ul className="location_icon">
-                                <li><Link to=""><i className="fa fa-map-marker" aria-hidden="true"></i></Link> Location</li>
+                                <li><Link to="/contact"><i className="fa fa-map-marker" aria-hidden="true"></i></Link> Location</li>
                                 <li><Link to="#"><i className="fa fa-phone" aria-hidden="true"></i></Link> +01 1234567890</li>
-                                <li><Link to="#"><i className="fa fa-envelope" aria-hidden="true"></i></Link> glasses@gmail.com</li>
+                                <li><Link to="/contact"><i className="fa fa-envelope" aria-hidden="true"></i></Link> glasses@gmail.com</li>
                             </ul>
                         </div>
                     </div>
