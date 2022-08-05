@@ -21,10 +21,13 @@ export const Register = () => {
             ...state,
             [e.target.name]: e.target.value
         }));
-    }
+    };
     const registerSubmitHandler = (e) => {
         e.preventDefault();
         const { email, password, rePassword } = values;
+        e.target.style['border-bottom'] = "#e80303"
+
+
         if (password === rePassword) {
             UserService.register(email, password)
                 .then(res => {
@@ -36,7 +39,7 @@ export const Register = () => {
                 })
                 .catch(err => {
                     console.log(err);
-                })
+                });
 
             navigate('/');
         } else {

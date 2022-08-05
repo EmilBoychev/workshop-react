@@ -8,6 +8,7 @@
     z-index: 20;
     text-decoration-color: aliceblue;
     text-align: center;
+    background-attachment: scroll;
 }
 
 .btn {

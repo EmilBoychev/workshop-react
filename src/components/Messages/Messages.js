@@ -3,10 +3,12 @@ import * as MessageService from '../Services/MessageService'
 import { useEffect, useState } from 'react'
 import { useContext } from 'react';
 import { AdminContext } from '../Contexts/AdminContext'
+import { useNavigate } from 'react-router-dom'
 
 export const Message = ({
     onClose
 }) => {
+    const navigate = useNavigate()
     const { admin } = useContext(AdminContext);
     const [message, setMessage] = useState([]);
     useEffect(() => {
@@ -20,6 +22,10 @@ export const Message = ({
 
     }, [])
 
+    if (!admin.email) {
+        return navigate('/login');
+    };
+
     const onDelete = async (messageId) => {
         MessageService.onDelete(admin.accessToken, messageId)
             .then(res => {
@@ -28,7 +34,7 @@ export const Message = ({
             })
             .catch(err => {
                 console.log(err);
-            })
+            });
     };
 
     return (
