@@ -3,22 +3,18 @@ import { useParams, useNavigate } from 'react-router-dom';
 import * as GlassesService from '../Services/GlassesService';
 import { AdminContext } from '../Contexts/AdminContext'
 import { useContext } from 'react';
+import { OneGlasses } from '../Contexts/GlassesContext';
 import './style.css';
 
 export const Edit = () => {
     const navigate = useNavigate();
+    const { glasses } = useContext(OneGlasses);
     const { admin } = useContext(AdminContext);
     const glassesParams = useParams('id');
-    const [values, setValues] = useState({
-        imgUrl: '',
-        description: '',
-        name: '',
-        price: '',
-    });
+    const [values, setValues] = useState({ glasses });
     useEffect(() => {
         GlassesService.getOne(glassesParams.id)
             .then(res => {
-                console.log(res);
                 setValues(state => ({
                     _id: glassesParams.id,
                     imgUrl: res.imgUrl,
@@ -29,7 +25,7 @@ export const Edit = () => {
             })
             .catch(err => {
                 console.log(err);
-            })
+            });
     }, [glassesParams.id]);
 
 

@@ -18,6 +18,7 @@ import { Edit } from "./components/Edit/Edit";
 import { Message } from "./components/Messages/Messages";
 import { Logout } from "./components/User/Logout/Logout";
 import { useLocalStorage } from "./components/hooks/useLocalStorage";
+import { OneGlasses } from "./components/Contexts/GlassesContext";
 import { Error404 } from './components/Error404/Error404'
 
 
@@ -26,6 +27,7 @@ function App() {
     const [userMessage, setUserMessage] = useState();
     const [auth, setAuth] = useLocalStorage('auth', {});
     const [admin, setAdmin] = useLocalStorage('admin', {});
+    const [glasses, setGlasses] = useState({})
     useEffect(() => {
         setUserMessage(true);
     }, [userMessage])
@@ -48,46 +50,53 @@ function App() {
     const logoutAdmin = () => {
         setAdmin('');
     };
+    const oneGlasses = (oneGlassesRes) => {
+        setGlasses(oneGlassesRes)
+    }
+
     return (
         <AuthContext.Provider value={{ auth, loginHandler, userLogout }} >
             <AdminContext.Provider value={{ admin, userAdmin, logoutAdmin }}>
+                <OneGlasses.Provider value={{ glasses, oneGlasses }}>
 
 
-                <>
-                    <Header />
-                    <div className="App">
 
-                        <Routes>
-                            <Route path="/" element={<> <Banner /> <Glasses /> </>} />
+                    <>
+                        <Header />
+                        <div className="App">
 
-                            <Route path="/about" element={<About />} />
+                            <Routes>
+                                <Route path="/" element={<> <Banner /> <Glasses /> </>} />
 
-                            <Route path="/glasses" element={<Glasses />} />
+                                <Route path="/about" element={<About />} />
 
-                            <Route path="/details/:glassesId" element={<Details />} />
+                                <Route path="/glasses" element={<Glasses />} />
 
-                            <Route path="/clients" element={<ClientSection />} />
+                                <Route path="/details/:glassesId" element={<Details />} />
 
-                            <Route path="/contact" element={<Contacts />} />
+                                <Route path="/clients" element={<ClientSection />} />
 
-                            <Route path="/create" element={<Create />} />
+                                <Route path="/contact" element={<Contacts />} />
 
-                            <Route path="/register" element={<Register />} />
+                                <Route path="/create" element={<Create />} />
 
-                            <Route path="/login" element={<Login />} />
+                                <Route path="/register" element={<Register />} />
 
-                            <Route path="/logout" element={<Logout />} />
+                                <Route path="/login" element={<Login />} />
 
-                            <Route path={`/glasses/:id/edit`} element={<Edit />} />
+                                <Route path="/logout" element={<Logout />} />
 
-                            {userMessage && <Route path="/messages" element={<Message onClose={onCloseMessage} />} />}
+                                <Route path={`/glasses/:id/edit`} element={<Edit />} />
 
-                            <Route path={'/404'} element={<Error404 />} />
-                        </Routes>
+                                {userMessage && <Route path="/messages" element={<Message onClose={onCloseMessage} />} />}
 
-                        <Footer />
-                    </div>
-                </>
+                                <Route path={'/404'} element={<Error404 />} />
+                            </Routes>
+
+                            <Footer />
+                        </div>
+                    </>
+                </OneGlasses.Provider>
             </AdminContext.Provider>
         </AuthContext.Provider>
     );

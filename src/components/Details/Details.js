@@ -6,6 +6,7 @@ import { Choice } from '../Alerts/Choice';
 import * as GlassesService from '../Services/GlassesService'
 import { AdminContext } from '../Contexts/AdminContext';
 import { AuthContext } from '../Contexts/AuthContext';
+import { OneGlasses } from '../Contexts/GlassesContext';
 import { Comment } from './Coments/Coment';
 import uniqId from 'uniqid';
 // import * as commentService from '../Services/CommentService'
@@ -17,16 +18,19 @@ export const Details = () => {
     const { glassesId } = useParams();
     const [glasses, setGlasses] = useState({});
     const [deleteHandler, setDeleteHandler] = useState(false);
+    const { oneGlasses } = useContext(OneGlasses);
+
     // const [comment, setComment]
     useEffect(() => {
         GlassesService.getOne(glassesId)
             .then(res => {
                 setGlasses(res);
+                oneGlasses(res);
             })
             .catch(err => {
                 console.log(err);
             })
-    }, [glassesId]);
+    }, [glassesId, oneGlasses]);
 
 
     const deleteGlasses = () => {
@@ -63,6 +67,7 @@ export const Details = () => {
         GlassesService.updata(glassesId, { ...glasses, comment: glassesComment })
             .then(res => {
                 setGlasses(res);
+                e.target.reset()
             })
             .catch(err => {
                 console.log(err.message);
@@ -80,7 +85,7 @@ export const Details = () => {
 
                         {glasses.comment && glasses.comment.map(x => <Comment key={x._id} comment={x} />)}
 
-                        {!admin.email &&
+                        {!admin.email && auth.email &&
                             <form id='comment' className='comment-form' onSubmit={addCommentHandler} >
                                 <div>
                                     <input className='comment' type="text" name="comment" defaultValue="" placeholder='Add commment...' />
@@ -95,7 +100,8 @@ export const Details = () => {
                             <div className="titlepage">
                                 <h2>{glasses.name}</h2>
                                 <p>{glasses.description}</p>
-                                <NavLink className="read_more" to="#">Buy now</NavLink>
+
+                                {!admin.email && <NavLink className="read_more" to="#">Buy now</NavLink>}
                                 {admin.email &&
                                     <>
                                         <NavLink className="read_more" to={`/glasses/${glasses._id}/edit`}>Edit</NavLink>
