@@ -21,18 +21,22 @@ export const Details = () => {
     const [deleteHandler, setDeleteHandler] = useState(false);
     const navigate = useNavigate();
 
-    // const [comment, setComment]
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         GlassesService.getOne(glassesId)
             .then(res => {
                 setGlasses(res);
                 oneGlasses(res);
+                setLoading(false)
             })
             .catch(err => {
                 console.log(err);
             })
     }, [glassesId]);
 
+    if (loading) {
+        return <h3>Loading</h3>
+    }
 
     const deleteGlasses = () => {
         setDeleteHandler(true);
@@ -86,6 +90,7 @@ export const Details = () => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-5">
+                        {loading}
                         <div className="shop_img">
                             <figure><img src={glasses.imgUrl} alt="#" /></figure>
                         </div>
@@ -102,13 +107,13 @@ export const Details = () => {
                         }
 
                     </div>
-                    <div className="col-md-7 padding_right0">
-                        <div className="max_width">
+                    <div className="max_width">
+                        <div className="col-md-7 padding_right0">
                             <div className="titlepage">
                                 <h2>{glasses.name}</h2>
                                 <p>{glasses.description}</p>
 
-                                {!admin.email && <button className='read_more' onClick={addGlassesToCart} > Buy it now</button>}
+                                {!admin.email && auth.email && <button className='read_more' onClick={addGlassesToCart} > Buy it now</button>}
                                 {admin.email &&
                                     <>
                                         <NavLink className="read_more" to={`/glasses/${glasses._id}/edit`}>Edit</NavLink>

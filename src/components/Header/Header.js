@@ -69,13 +69,13 @@ export const Header = () => {
                                         <li className="nav-item">
                                             <NavLink className="nav-link" to="/glasses">Our Glasses</NavLink>
                                         </li>
-                                        {auth.email &&
-                                            <li className="nav-item">
-                                                <NavLink className="nav-link" to="/clients">Profile</NavLink>
-                                            </li>}
                                         <li className="nav-item">
                                             <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
                                         </li>
+                                        {auth.email &&
+                                            <li className="nav-item">
+                                                <NavLink className="nav-link" to="/clients">Cart</NavLink>
+                                            </li>}
                                         {!auth.email ? forGuest : forAuth}
                                         {admin.email && forAdmin}
 

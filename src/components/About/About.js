@@ -7,7 +7,6 @@ export const About = () => {
                 <div className="row d_flex">
                     <div className="col-md-5">
                         <div className="about_img">
-                            <figure><img src="images/about_img.png" alt="#" /></figure>
                         </div>
                     </div>
                     <div className="col-md-7">
@@ -18,7 +17,6 @@ export const About = () => {
                                 believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
                                 anything embarrassing hidden in the middle of text.</p>
                         </div>
-                        <a className="read_more" href="/more">Read More</a>
                     </div>
                 </div>
             </div>

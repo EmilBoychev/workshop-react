@@ -1,6 +1,7 @@
 .glasses {
     background: #fff;
     margin-top: 90px;
+    background-image: url(https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1600);
 }
 
 .glasses .titlepage {
@@ -26,6 +27,7 @@
     border-radius: 2px;
     padding: 120px 0px 30px 0px;
     margin-bottom: 30px;
+    background-color: white;
 }
 
 .glasses .glasses_box figure {
@@ -53,6 +55,7 @@
     margin: 0 auto;
     margin-top: 44px;
     margin-bottom: 20px;
+    background-color: lightblue;
 }
 
 .img-one {

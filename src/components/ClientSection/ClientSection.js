@@ -23,7 +23,7 @@ export const ClientSection = () => {
                     <div className="col-md-12">
                         <div className="titlepage">
                             {cart.length === 0
-                                ? <h2>Empty cart </h2>
+                                ? <h2 className='text-title'>Empty cart </h2>
                                 : <>
                                     <h2>Your cart</h2>
                                     <p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la</p>
