@@ -18,7 +18,7 @@ import { Edit } from "./components/Edit/Edit";
 import { Message } from "./components/Messages/Messages";
 import { Logout } from "./components/User/Logout/Logout";
 import { useLocalStorage } from "./components/hooks/useLocalStorage";
-import { OneGlasses } from "./components/Contexts/GlassesContext";
+import { OneGlasses, CartGlasses } from "./components/Contexts/GlassesContext";
 import { Error404 } from './components/Error404/Error404'
 
 
@@ -28,6 +28,7 @@ function App() {
     const [auth, setAuth] = useLocalStorage('auth', {});
     const [admin, setAdmin] = useLocalStorage('admin', {});
     const [glasses, setGlasses] = useState({})
+    const [cart, setCart] = useState([])
     useEffect(() => {
         setUserMessage(true);
     }, [userMessage])
@@ -51,51 +52,59 @@ function App() {
         setAdmin('');
     };
     const oneGlasses = (oneGlassesRes) => {
-        setGlasses(oneGlassesRes)
-    }
-
+        setGlasses(oneGlassesRes);
+    };
+    const addToCart = (addCart) => {
+        setCart(current => [...current, addCart]);
+    };
+    const delFromCart = (delCart) => {
+        let filtred = cart.filter(x => x !== delCart);
+        setCart(current => filtred);
+    };
     return (
         <AuthContext.Provider value={{ auth, loginHandler, userLogout }} >
             <AdminContext.Provider value={{ admin, userAdmin, logoutAdmin }}>
                 <OneGlasses.Provider value={{ glasses, oneGlasses }}>
+                    <CartGlasses.Provider value={{ cart, addToCart, delFromCart }} >
 
 
 
-                    <>
-                        <Header />
-                        <div className="App">
+                        <>
+                            <Header />
+                            <div className="App">
 
-                            <Routes>
-                                <Route path="/" element={<> <Banner /> <Glasses /> </>} />
+                                <Routes>
+                                    <Route path="/" element={<> <Banner /> <Glasses /> </>} />
 
-                                <Route path="/about" element={<About />} />
+                                    <Route path="/about" element={<About />} />
 
-                                <Route path="/glasses" element={<Glasses />} />
+                                    <Route path="/glasses" element={<Glasses />} />
 
-                                <Route path="/details/:glassesId" element={<Details />} />
+                                    <Route path="/details/:glassesId" element={<Details />} />
 
-                                <Route path="/clients" element={<ClientSection />} />
+                                    <Route path="/clients" element={<ClientSection />} />
 
-                                <Route path="/contact" element={<Contacts />} />
+                                    <Route path="/contact" element={<Contacts />} />
 
-                                <Route path="/create" element={<Create />} />
+                                    <Route path="/create" element={<Create />} />
 
-                                <Route path="/register" element={<Register />} />
+                                    <Route path="/register" element={<Register />} />
 
-                                <Route path="/login" element={<Login />} />
+                                    <Route path="/login" element={<Login />} />
 
-                                <Route path="/logout" element={<Logout />} />
+                                    <Route path="/logout" element={<Logout />} />
 
-                                <Route path={`/glasses/:id/edit`} element={<Edit />} />
+                                    <Route path={`/glasses/:id/edit`} element={<Edit />} />
 
-                                {userMessage && <Route path="/messages" element={<Message onClose={onCloseMessage} />} />}
+                                    {userMessage && <Route path="/messages" element={<Message onClose={onCloseMessage} />} />}
 
-                                <Route path={'/404'} element={<Error404 />} />
-                            </Routes>
+                                    <Route path={'/404'} element={<Error404 />} />
+                                </Routes>
 
-                            <Footer />
-                        </div>
-                    </>
+                                <Footer />
+                            </div>
+                        </>
+                    </CartGlasses.Provider>
                 </OneGlasses.Provider>
             </AdminContext.Provider>
         </AuthContext.Provider>

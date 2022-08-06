@@ -6,7 +6,7 @@ import { Choice } from '../Alerts/Choice';
 import * as GlassesService from '../Services/GlassesService'
 import { AdminContext } from '../Contexts/AdminContext';
 import { AuthContext } from '../Contexts/AuthContext';
-import { OneGlasses } from '../Contexts/GlassesContext';
+import { OneGlasses, CartGlasses } from '../Contexts/GlassesContext';
 import { Comment } from './Coments/Coment';
 import uniqId from 'uniqid';
 // import * as commentService from '../Services/CommentService'
@@ -14,11 +14,12 @@ import uniqId from 'uniqid';
 export const Details = () => {
     const { admin } = useContext(AdminContext);
     const { auth } = useContext(AuthContext);
-    const navigate = useNavigate();
+    const { oneGlasses } = useContext(OneGlasses);
+    const { addToCart } = useContext(CartGlasses);
     const { glassesId } = useParams();
     const [glasses, setGlasses] = useState({});
     const [deleteHandler, setDeleteHandler] = useState(false);
-    const { oneGlasses } = useContext(OneGlasses);
+    const navigate = useNavigate();
 
     // const [comment, setComment]
     useEffect(() => {
@@ -74,6 +75,12 @@ export const Details = () => {
             });
     };
 
+    const addGlassesToCart = () => {
+        addToCart(glasses);
+
+    }
+
+
     return (
         <div id="about" className="shop">
             <div className="container-fluid">
@@ -101,7 +108,7 @@ export const Details = () => {
                                 <h2>{glasses.name}</h2>
                                 <p>{glasses.description}</p>
 
-                                {!admin.email && <NavLink className="read_more" to="#">Buy now</NavLink>}
+                                {!admin.email && <button className='read_more' onClick={addGlassesToCart} > Buy it now</button>}
                                 {admin.email &&
                                     <>
                                         <NavLink className="read_more" to={`/glasses/${glasses._id}/edit`}>Edit</NavLink>
