@@ -20,6 +20,7 @@ import { Logout } from "./components/User/Logout/Logout";
 import { useLocalStorage } from "./components/hooks/useLocalStorage";
 import { OneGlasses, CartGlasses } from "./components/Contexts/GlassesContext";
 import { Error404 } from './components/Error404/Error404'
+import ErrorBoundary from './components/common/ErrorBoundary'
 
 
 function App() {
@@ -59,55 +60,57 @@ function App() {
     };
     const delFromCart = (delCart) => {
         let filtred = cart.filter(x => x !== delCart);
-        setCart(current => filtred);
+        setCart(() => filtred);
     };
     return (
-        <AuthContext.Provider value={{ auth, loginHandler, userLogout }} >
-            <AdminContext.Provider value={{ admin, userAdmin, logoutAdmin }}>
-                <OneGlasses.Provider value={{ glasses, oneGlasses }}>
-                    <CartGlasses.Provider value={{ cart, addToCart, delFromCart }} >
+        <ErrorBoundary>
+            <AuthContext.Provider value={{ auth, loginHandler, userLogout }} >
+                <AdminContext.Provider value={{ admin, userAdmin, logoutAdmin }}>
+                    <OneGlasses.Provider value={{ glasses, oneGlasses }}>
+                        <CartGlasses.Provider value={{ cart, addToCart, delFromCart }} >
 
 
 
-                        <>
-                            <Header />
-                            <div className="App">
+                            <>
+                                <Header />
+                                <div className="App">
 
-                                <Routes>
-                                    <Route path="/" element={<> <Banner /> <Glasses /> <About /> </>} />
+                                    <Routes>
+                                        <Route path="/" element={<> <Banner /> <Glasses /> <About /> </>} />
 
-                                    <Route path="/about" element={<About />} />
+                                        <Route path="/about" element={<About />} />
 
-                                    <Route path="/glasses" element={<Glasses />} />
+                                        <Route path="/glasses" element={<Glasses />} />
 
-                                    <Route path="/details/:glassesId" element={<Details />} />
+                                        <Route path="/details/:glassesId" element={<Details />} />
 
-                                    <Route path="/clients" element={<ClientSection />} />
+                                        <Route path="/clients" element={<ClientSection />} />
 
-                                    <Route path="/contact" element={<Contacts />} />
+                                        <Route path="/contact" element={<Contacts />} />
 
-                                    <Route path="/create" element={<Create />} />
+                                        <Route path="/create" element={<Create />} />
 
-                                    <Route path="/register" element={<Register />} />
+                                        <Route path="/register" element={<Register />} />
 
-                                    <Route path="/login" element={<Login />} />
+                                        <Route path="/login" element={<Login />} />
 
-                                    <Route path="/logout" element={<Logout />} />
+                                        <Route path="/logout" element={<Logout />} />
 
-                                    <Route path={`/glasses/:id/edit`} element={<Edit />} />
+                                        <Route path={`/glasses/:id/edit`} element={<Edit />} />
 
-                                    {userMessage && <Route path="/messages" element={<Message onClose={onCloseMessage} />} />}
+                                        {userMessage && <Route path="/messages" element={<Message onClose={onCloseMessage} />} />}
 
-                                    <Route path={'/404'} element={<Error404 />} />
-                                </Routes>
+                                        <Route path={'/404'} element={<Error404 />} />
+                                    </Routes>
 
-                                <Footer />
-                            </div>
-                        </>
-                    </CartGlasses.Provider>
-                </OneGlasses.Provider>
-            </AdminContext.Provider>
-        </AuthContext.Provider>
+                                    <Footer />
+                                </div>
+                            </>
+                        </CartGlasses.Provider>
+                    </OneGlasses.Provider>
+                </AdminContext.Provider>
+            </AuthContext.Provider>
+        </ErrorBoundary>
     );
 }
 

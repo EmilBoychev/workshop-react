@@ -27,12 +27,11 @@ export const Header = () => {
     const forAdmin = (
         <>
             <li className="nav-item d_none">
-                <NavLink className="nav-link" to="/create">Add</NavLink>
+                <NavLink className="nav-link" to="/create">Add product</NavLink>
             </li>
             <li className="nav-item d_none">
-                <NavLink className="nav-link" to="/messages">Message</NavLink>
+                <NavLink className="nav-link" to="/messages">Messages</NavLink>
             </li>
-
         </>
     )
 
@@ -60,6 +59,8 @@ export const Header = () => {
                                 </button>
                                 <div className="collapse navbar-collapse" id="navbarsExample04">
                                     <ul className="navbar-nav mr-auto">
+                                        {auth.email && <p>{auth.email}</p>}
+
                                         <li className="nav-item active">
                                             <NavLink className="nav-link" to="/">Home</NavLink>
                                         </li>
@@ -72,7 +73,7 @@ export const Header = () => {
                                         <li className="nav-item">
                                             <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
                                         </li>
-                                        {auth.email &&
+                                        {auth.email && !admin.email &&
                                             <li className="nav-item">
                                                 <NavLink className="nav-link" to="/clients">Cart</NavLink>
                                             </li>}

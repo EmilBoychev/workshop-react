@@ -33,8 +33,9 @@ export const Login = () => {
                 }
                 navigate('/');
             })
-            .catch(err => {
-                console.log(err);
+            .catch((err) => {
+
+                throw new Error('Wrong email or password')
             })
     }
 
@@ -49,7 +50,7 @@ export const Login = () => {
                                     <h3>Login</h3>
                                 </div>
                                 <div className="col-md-12">
-                                    <input className="contactus" placeholder="Username" type="type" name="email" value={values.email} onChange={changeHandler} />
+                                    <input className="contactus" placeholder="Email" type="type" name="email" value={values.email} onChange={changeHandler} />
                                 </div>
                                 <div className="col-md-12">
                                     <input className="contactus" placeholder="Password" type="type" name="password" value={values.password} onChange={changeHandler} />
