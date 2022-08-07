@@ -3,7 +3,7 @@
 This is a simple glasses shop.
 
 Start app : npm start 
-Start server: node server.js
+Start server in server folder: node server.js
 
 Functionality:
 This site has three types of users: 
