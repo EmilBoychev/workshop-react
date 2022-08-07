@@ -49,11 +49,11 @@ export const Register = () => {
 
 
     return (
-        <div id="contact" className="contact">
+        <div id="contact" className="register">
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">
-                        <form onSubmit={registerSubmitHandler} id="request" className="main_form">
+                        <form onSubmit={registerSubmitHandler} id="request" className="main_form-register">
                             <div className="row">
                                 <div className="col-md-12 ">
                                     <h3>Register</h3>

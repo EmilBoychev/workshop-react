@@ -11,7 +11,7 @@ First are guest/not logged - they don't have any extra permissions, only reviewi
 Second are users/registered - they can register into the site, sent messages, add comments, add products and clear the cart .
 The third is admin - administrative privileges: add products, delete products, edit products, read and delete messages.The admin user doesn't have access to the cart and not allowed to add comments.
 ### Important note 
-In oder to use admin privileges, please, make a new registration with email "peter@abv.bg" and password by choise.
+In other to use admin privileges, please, make a new registration with email "peter@abv.bg" and password by choice.
 
 Content
 The online shop offers selected branded glasses.

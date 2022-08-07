@@ -40,11 +40,11 @@ export const Login = () => {
     }
 
     return (
-        <div id="contact" className="contact">
+        <div id="contact" className="login">
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">
-                        <form id="request" className="main_form" onSubmit={loginSubmitHandler} >
+                        <form id="request" className="main_form-login" onSubmit={loginSubmitHandler} >
                             <div className="row">
                                 <div className="col-md-12 ">
                                     <h3>Login</h3>
