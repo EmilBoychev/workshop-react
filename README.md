@@ -1,4 +1,4 @@
-# Sungalsses online shop 
+# Sungalsses shop 
 
 This is a simple glasses shop.
 
@@ -10,7 +10,7 @@ This site has three types of users:
 First are guest/not logged - they don't have any extra permissions, only reviewing the content.
 Second are users/registered - they can register into the site, sent messages, add comments, add products and clear the cart .
 The third is admin - administrative privileges: add products, delete products, edit products, read and delete messages.The admin user doesn't have access to the cart and not allowed to add comments.
-### Important node 
+### Important note 
 In oder to use admin privileges, please, make a new registration with email "peter@abv.bg" and password by choise.
 
 Content
