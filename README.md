@@ -2,7 +2,7 @@
 
 This is a simple glasses shop.
 
-Start app : npm start 
+Start app : npm start,          
 Start server in server folder: node server.js
 
 Functionality:
