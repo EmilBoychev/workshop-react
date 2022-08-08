@@ -1,8 +1,11 @@
-.contact {
-    margin-top: 90px;
+.cont {
+    background-image: url(https://img.freepik.com/premium-photo/coconut-drink-sunglasses-summer-beach-background_42414-55.jpg?w=1060);
+    margin-top: -150px;
+    padding: 300px;
+    object-fit: fill;
 }
 
-.contact .main_form h3 {
+.cont .main_form-contacts h3 {
     color: #4b4b4c;
     font-size: 27px;
     line-height: 30px;
@@ -13,29 +16,32 @@
 }
 
 .map {
-    height: 100%;
-    min-height: 732px;
+    height: 100px;
+    width: 700px;
     margin-top: 10px;
-    margin-left: 50px;
+    margin-left: 850px;
     margin-right: 50px;
     margin-bottom: 50px;
+    padding-bottom: 450px;
 }
 
-.main_form {
+.main_form-contacts {
     position: absolute;
     z-index: 999;
-    background: #fff;
+    background: transparent;
     padding: 40px 50px;
     margin-top: 107px;
+    margin-left: 100px;
 }
 
-.main_form .contactus {
+.main_form-contacts .contactuss {
     border-bottom: white solid 1px;
+    text-decoration: black;
     margin-bottom: 25px;
     width: 100%;
     height: 57px;
     background: transparent;
-    color: white;
+    color: black;
     font-size: 18px;
     font-weight: normal;
     border-top: inherit;
@@ -43,14 +49,15 @@
     border-right: inherit;
 }
 
-.main_form .contactusmess {
-    border-bottom: white solid 1px;
+.main_form-contacts .contactusmesss {
+    border-bottom: black solid 1px;
     margin-bottom: 25px;
+    text-decoration: black;
     width: 100%;
     padding-top: 40px;
     padding-bottom: 14px;
     background: transparent;
-    color: white;
+    color: black;
     ;
     font-size: 18px;
     font-weight: normal;
@@ -78,7 +85,8 @@
 }
 
 #request *::placeholder {
-    color: white;
+    color: black;
+    text-decoration: black;
     opacity: 1;
 }
 

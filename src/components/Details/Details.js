@@ -113,7 +113,7 @@ export const Details = () => {
                                 <h2>{glasses.name}</h2>
                                 <p>{glasses.description}</p>
 
-                                {!admin.email && auth.email && <button className='read_more' onClick={addGlassesToCart} > Buy it now</button>}
+                                {!admin.email && auth.email && <button className='read_more' onClick={addGlassesToCart} >Add to cart</button>}
                                 {admin.email &&
                                     <>
                                         <NavLink className="read_more" to={`/glasses/${glasses._id}/edit`}>Edit</NavLink>

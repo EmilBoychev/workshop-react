@@ -32,23 +32,23 @@ export const Contacts = () => {
 
 
     return (
-        <div id="contact" className="contact">
+        <div id="contact" className="cont">
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">
-                        <form id="request" className="main_form" onSubmit={userMessage}>
+                        <form id="request" className="main_form-contacts" onSubmit={userMessage}>
                             <div className="row">
                                 <div className="col-md-12 ">
                                     <h3>Contact Us</h3>
                                 </div>
                                 <div className="col-md-12 ">
-                                    <input className="contactus" placeholder="Name" type="type" name="name" />
+                                    <input className="contactuss" placeholder="Name" type="type" name="name" />
                                 </div>
                                 <div className="col-md-12">
-                                    <input className="contactus" placeholder="Phone Number" type="type" name="phoneNumber" />
+                                    <input className="contactuss" placeholder="Phone Number" type="type" name="phoneNumber" />
                                 </div>
                                 <div className="col-md-12">
-                                    <input className="contactusmess" placeholder="Message" type="type" name="message" />
+                                    <input className="contactusmesss" placeholder="Message" type="type" name="message" />
                                 </div>
                                 <div className="col-md-12">
                                     <button className="send_btn">Send</button>
@@ -58,7 +58,7 @@ export const Contacts = () => {
                     </div>
                 </div>
             </div>
-            <img className='image-add' src="https://images.indianexpress.com/2022/01/Titan-EyeX_2_1.jpg" alt="" />
+            {/* <img className='image-add' src="https://images.indianexpress.com/2022/01/Titan-EyeX_2_1.jpg" alt="" /> */}
             <div className="container-fluid">
                 <div className="map_section">
                     <div className="map">
