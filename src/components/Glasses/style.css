@@ -1,6 +1,5 @@
 .glasses {
     background: #fff;
-    margin-top: 90px;
     background-image: url(https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1600);
 }
 
@@ -24,7 +23,7 @@
 .glasses .glasses_box {
     text-align: center;
     border: #555556 solid 1px;
-    border-radius: 2px;
+    border-radius: 40px;
     padding: 120px 0px 30px 0px;
     margin-bottom: 30px;
     background-color: white;
