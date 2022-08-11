@@ -36,7 +36,7 @@ export const Glasses = () => {
                 <div className="row">
                     <div className="col-md-10 offset-md-1">
                         <div className="titlepage">
-                            <h2>Our Glasses</h2>
+                            <h2 className='text-h'>Our Glasses</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor
                                 e et dolore magna aliqua. Ut enim ad minim veniam, qui
                             </p>
