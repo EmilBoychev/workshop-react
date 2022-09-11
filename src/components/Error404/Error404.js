@@ -1,4 +1,4 @@
-import './style.css'
+import './Error404.css'
 
 export const Error404 = () => {
     return (

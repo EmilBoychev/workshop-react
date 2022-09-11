@@ -1,4 +1,4 @@
-import './style.css';
+import './Details.css';
 import { useEffect, useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { useContext } from 'react';

@@ -1,4 +1,4 @@
-import './style.css';
+import './ClientSection.css';
 import { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import { CartGlasses } from '../Contexts/GlassesContext';

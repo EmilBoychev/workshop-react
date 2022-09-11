@@ -1,4 +1,4 @@
-import './style.css';
+import './Contacts.css';
 import * as MessageService from '../Services/MessageService'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthContext';

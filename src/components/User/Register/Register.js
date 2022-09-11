@@ -1,4 +1,4 @@
-import './style.css';
+import './Register.css';
 import { useState } from 'react';
 import * as UserService from '../../Services/UserService'
 import { useNavigate } from 'react-router-dom';

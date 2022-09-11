@@ -1,4 +1,4 @@
-import './style.css';
+import './Glasses.css';
 import { One } from './One/One';
 import * as GlassesService from '../Services/GlassesService';
 import { useEffect, useState } from 'react';

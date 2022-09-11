@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import * as GlassesService from '../Services/GlassesService'
 import { Glasses } from './Glasses/Glasses';
-import './style.css';
+import './Banner.css';
 
 export const Banner = () => {
     const [glasses, setGlasses] = useState([]);

@@ -1,4 +1,4 @@
-import './style.css'
+import './Messages.css'
 import * as MessageService from '../Services/MessageService'
 import { useEffect, useState } from 'react'
 import { useContext } from 'react';

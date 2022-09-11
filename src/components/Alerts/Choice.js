@@ -1,4 +1,4 @@
-import './style.css'
+import './Choice.css'
 
 export const Choice = ({ onCloseBtn, deleteGlasses }) => {
 

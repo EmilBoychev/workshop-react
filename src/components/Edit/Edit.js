@@ -4,7 +4,7 @@ import * as GlassesService from '../Services/GlassesService';
 import { AdminContext } from '../Contexts/AdminContext'
 import { useContext } from 'react';
 import { OneGlasses } from '../Contexts/GlassesContext';
-import './style.css';
+import './Edit.css';
 
 export const Edit = () => {
     const navigate = useNavigate();
