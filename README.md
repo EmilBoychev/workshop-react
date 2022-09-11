@@ -2,8 +2,7 @@
 
 This is a simple glasses shop.
 
-Start app : npm start,          
-Start server in server folder: node server.js
+Start app : npm start or go to   https://glasses--react--workshop.web.app
 
 Functionality:
 This site has three types of users: 
