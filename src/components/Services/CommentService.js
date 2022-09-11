@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030/jsonstore/comments'
+const baseUrl = 'https://server-js.herokuapp.com/jsonstore/comments'
 
 export const create = async (glassesId, comment) => {
     const responce = await fetch(baseUrl, {

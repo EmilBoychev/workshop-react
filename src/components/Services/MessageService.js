@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030/data/messages';
+const baseUrl = 'https://server-js.herokuapp.com/data/messages';
 
 
 export const create = async (token, messageData) => {

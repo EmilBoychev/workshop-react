@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030/users';
+const baseUrl = 'https://server-js.herokuapp.com/users';
 
 export const register = async (email, password) => {
     try {
