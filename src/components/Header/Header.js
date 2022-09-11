@@ -70,20 +70,15 @@ export const Header = () => {
                                         <li className="nav-item">
                                             <NavLink className="nav-link" to="/glasses">Our Glasses</NavLink>
                                         </li>
-                                        <li className="nav-item">
+                                        {!admin.email && <li className="nav-item">
                                             <NavLink className="nav-link" to="/contact">Contact Us</NavLink>
-                                        </li>
+                                        </li>}
                                         {auth.email && !admin.email &&
                                             <li className="nav-item">
                                                 <NavLink className="nav-link" to="/clients">Cart</NavLink>
                                             </li>}
                                         {!auth.email ? forGuest : forAuth}
                                         {admin.email && forAdmin}
-
-                                        {/* <li className="nav-item d_none sea_icon">
-                                            <NavLink className="nav-link" to="/bag"><i className="fa fa-shopping-bag" aria-hidden="true"></i><i
-                                                className="fa fa-search" aria-hidden="true"></i></NavLink>
-                                        </li> */}
                                     </ul>
                                 </div>
                             </nav>
