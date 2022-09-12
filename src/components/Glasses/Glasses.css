@@ -33,6 +33,7 @@
     padding: 120px 0px 30px 0px;
     margin-bottom: 30px;
     background-color: white;
+
 }
 
 .glasses .glasses_box figure {
@@ -64,6 +65,6 @@
 }
 
 .img-one {
-    height: 200px;
-    width: 430px;
+    height: 19%;
+    width: 100%;
 }
